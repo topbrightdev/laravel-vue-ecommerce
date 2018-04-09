@@ -1,0 +1,2724 @@
+30-03-2018 12:51:16:change_purchase_log_status - order_id:186 old_status:1 - new_status:31
+30-03-2018 12:51:16:refund
+30-03-2018 12:51:16:Array
+(
+    [id] => 186
+    [totalprice] => 809.00
+    [statusno] => 0
+    [sessionid] => 3771522413402
+    [transactid] => 45087328
+    [authcode] => 
+    [processed] => 31
+    [user_ID] => 1
+    [date] => 1522413429
+    [gateway] => cloudpayments
+    [billing_country] => AZ
+    [shipping_country] => BH
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+30-03-2018 12:51:16:Array
+30-03-2018 12:51:16:change_purchase_log_status - order_id:186 old_status:31 - new_status:1
+30-03-2018 12:53:50:change_purchase_log_status - order_id:186 old_status:1 - new_status:31
+30-03-2018 12:53:50:refund
+30-03-2018 12:53:50:Array
+(
+    [id] => 186
+    [totalprice] => 809.00
+    [statusno] => 0
+    [sessionid] => 3771522413402
+    [transactid] => 45087328
+    [authcode] => 
+    [processed] => 31
+    [user_ID] => 1
+    [date] => 1522413429
+    [gateway] => cloudpayments
+    [billing_country] => AZ
+    [shipping_country] => BH
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+30-03-2018 12:53:50:https://api.cloudpayments.ru/payments/refund
+30-03-2018 12:53:50:Success
+30-03-2018 12:55:11:check_payment
+30-03-2018 12:55:11:processRequest - check
+30-03-2018 12:55:11:Array
+(
+    [TransactionId] => 45089464
+    [Amount] => 1385.00
+    [Currency] => RUB
+    [PaymentAmount] => 1385.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 187
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 3243243
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 12:55:02
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/24
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 187 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 12:55:00
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 12:55:11:processCheckAction
+30-03-2018 12:55:11:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => cH4gZKpFn5FJKsq6yRdDkVit/gFvvd6yxbM2kOjIDKg=
+    [------] =>             
+)
+
+30-03-2018 12:55:11:cH4gZKpFn5FJKsq6yRdDkVit/gFvvd6yxbM2kOjIDKg=
+30-03-2018 12:55:11:CorrectSum
+30-03-2018 12:55:11:Проверка заказа
+30-03-2018 12:55:11:{"CODE":0}
+30-03-2018 12:55:14:check_payment
+30-03-2018 12:55:14:processRequest - pay
+30-03-2018 12:55:14:Array
+(
+    [TransactionId] => 45089464
+    [Amount] => 1385.00
+    [Currency] => RUB
+    [PaymentAmount] => 1385.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 187
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 3243243
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 12:55:14
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/24
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 187 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 12:55:00
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 12:55:15:PAY_COMPLETE
+30-03-2018 12:55:15:Array
+(
+    [TransactionId] => 45089464
+    [Amount] => 1385.00
+    [Currency] => RUB
+    [PaymentAmount] => 1385.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 187
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 3243243
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 12:55:14
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/24
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 187 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 12:55:00
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 12:55:15:Array
+(
+    [id] => 187
+    [totalprice] => 1385.00
+    [statusno] => 0
+    [sessionid] => 7751522414497
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 1
+    [date] => 1522414497
+    [gateway] => cloudpayments
+    [billing_country] => AZ
+    [shipping_country] => BH
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+30-03-2018 12:55:15:KKT_SUCCESS
+30-03-2018 12:58:38:check_payment
+30-03-2018 12:58:38:processRequest - check
+30-03-2018 12:58:38:Array
+(
+    [TransactionId] => 45089866
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 188
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 2432
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 12:58:29
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/34
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 188 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 12:58:29
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 12:58:38:processCheckAction
+30-03-2018 12:58:38:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => d3wQ7CJIRxYViRMmlt/hguDLSQlWO6rL7AfbAacW/f4=
+    [------] =>             
+)
+
+30-03-2018 12:58:38:d3wQ7CJIRxYViRMmlt/hguDLSQlWO6rL7AfbAacW/f4=
+30-03-2018 12:58:38:CorrectSum
+30-03-2018 12:58:38:Проверка заказа
+30-03-2018 12:58:38:{"CODE":0}
+30-03-2018 12:58:41:check_payment
+30-03-2018 12:58:41:processRequest - pay
+30-03-2018 12:58:41:Array
+(
+    [TransactionId] => 45089866
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 188
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 2432
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 12:58:31
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/34
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 188 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 12:58:29
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 12:58:42:PAY_COMPLETE
+30-03-2018 12:58:42:Array
+(
+    [TransactionId] => 45089866
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 188
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 2432
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 12:58:31
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/34
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 188 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 12:58:29
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 12:58:42:Array
+(
+    [id] => 188
+    [totalprice] => 587.00
+    [statusno] => 0
+    [sessionid] => 2631522414707
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 1
+    [date] => 1522414707
+    [gateway] => cloudpayments
+    [billing_country] => AZ
+    [shipping_country] => BH
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+30-03-2018 12:58:42:KKT_SUCCESS
+30-03-2018 12:59:01:check_payment
+30-03-2018 12:59:01:processRequest - refund
+30-03-2018 12:59:01:Array
+(
+    [TransactionId] => 45089912
+    [PaymentTransactionId] => 45089866
+    [Amount] => 587.00
+    [OperationType] => Refund
+    [InvoiceId] => 188
+    [AccountId] => 1
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 12:58:58
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 13:01:34:check_payment
+30-03-2018 13:01:34:processRequest - check
+30-03-2018 13:01:34:Array
+(
+    [TransactionId] => 45090224
+    [Amount] => 22.00
+    [Currency] => RUB
+    [PaymentAmount] => 22.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 189
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 3243234
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 13:01:34
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/24
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 189 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 13:01:23
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"2\",\"amount\":\"22.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 13:01:34:processCheckAction
+30-03-2018 13:01:34:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => xih4bk7pIMFkhf3vAXcm17jsRBeEtEA6k21YdO8BwGA=
+    [------] =>             
+)
+
+30-03-2018 13:01:34:xih4bk7pIMFkhf3vAXcm17jsRBeEtEA6k21YdO8BwGA=
+30-03-2018 13:01:34:CorrectSum
+30-03-2018 13:01:34:Проверка заказа
+30-03-2018 13:01:34:{"CODE":0}
+30-03-2018 13:01:37:check_payment
+30-03-2018 13:01:37:processRequest - pay
+30-03-2018 13:01:37:Array
+(
+    [TransactionId] => 45090224
+    [Amount] => 22.00
+    [Currency] => RUB
+    [PaymentAmount] => 22.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 189
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 3243234
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 13:01:36
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/24
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 189 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 13:01:23
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"2\",\"amount\":\"22.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 13:01:38:PAY_COMPLETE
+30-03-2018 13:01:38:Array
+(
+    [TransactionId] => 45090224
+    [Amount] => 22.00
+    [Currency] => RUB
+    [PaymentAmount] => 22.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 189
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 3243234
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 13:01:36
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/24
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 189 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 13:01:23
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"2\",\"amount\":\"22.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 13:01:38:Array
+(
+    [id] => 189
+    [totalprice] => 22.00
+    [statusno] => 0
+    [sessionid] => 5281522414879
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 1
+    [date] => 1522414879
+    [gateway] => cloudpayments
+    [billing_country] => AZ
+    [shipping_country] => BH
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+30-03-2018 13:01:38:KKT_SUCCESS
+30-03-2018 13:01:54:check_payment
+30-03-2018 13:01:54:processRequest - refund
+30-03-2018 13:01:54:Array
+(
+    [TransactionId] => 45090259
+    [PaymentTransactionId] => 45090224
+    [Amount] => 22.00
+    [OperationType] => Refund
+    [InvoiceId] => 189
+    [AccountId] => 1
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 13:01:50
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"2\",\"amount\":\"22.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 13:04:29:check_payment
+30-03-2018 13:04:29:processRequest - check
+30-03-2018 13:04:29:Array
+(
+    [TransactionId] => 45090545
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 190
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 4243
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 13:04:26
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/23
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 190 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 13:04:20
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 13:04:29:processCheckAction
+30-03-2018 13:04:29:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => IPWb3LFrZE3r8tneKhBDvyALY4WGocgeSMKKPypvlqY=
+    [------] =>             
+)
+
+30-03-2018 13:04:29:IPWb3LFrZE3r8tneKhBDvyALY4WGocgeSMKKPypvlqY=
+30-03-2018 13:04:29:CorrectSum
+30-03-2018 13:04:29:Проверка заказа
+30-03-2018 13:04:29:{"CODE":0}
+30-03-2018 13:04:31:check_payment
+30-03-2018 13:04:31:processRequest - pay
+30-03-2018 13:04:31:Array
+(
+    [TransactionId] => 45090545
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 190
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 4243
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 13:04:28
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/23
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 190 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 13:04:20
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 13:04:32:PAY_COMPLETE
+30-03-2018 13:04:32:Array
+(
+    [TransactionId] => 45090545
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 190
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 4243
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 13:04:28
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/23
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 190 на \"http://cloud2.web-sputnik.com\" от 30-03-2018 13:04:20
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+30-03-2018 13:04:32:Array
+(
+    [id] => 190
+    [totalprice] => 587.00
+    [statusno] => 0
+    [sessionid] => 4061522415057
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 1
+    [date] => 1522415057
+    [gateway] => cloudpayments
+    [billing_country] => AZ
+    [shipping_country] => BH
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+30-03-2018 13:04:32:KKT_SUCCESS
+30-03-2018 13:07:00:change_purchase_log_status - order_id:190 old_status:3 - new_status:31
+30-03-2018 13:07:00:refund
+30-03-2018 13:07:00:Array
+(
+    [id] => 190
+    [totalprice] => 587.00
+    [statusno] => 0
+    [sessionid] => 4061522415057
+    [transactid] => 45090545
+    [authcode] => 
+    [processed] => 31
+    [user_ID] => 1
+    [date] => 1522415072
+    [gateway] => cloudpayments
+    [billing_country] => AZ
+    [shipping_country] => BH
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+30-03-2018 13:07:00:https://api.cloudpayments.ru/payments/refund
+30-03-2018 13:07:00:Success
+30-03-2018 13:07:01:check_payment
+30-03-2018 13:07:01:processRequest - refund
+30-03-2018 13:07:01:Array
+(
+    [TransactionId] => 45090867
+    [PaymentTransactionId] => 45090545
+    [Amount] => 587.00
+    [OperationType] => Refund
+    [InvoiceId] => 190
+    [AccountId] => 1
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-03-30 13:06:51
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"18\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"18\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":null}}}
+)
+
+02-04-2018 08:51:48:____567
+02-04-2018 08:51:48:____1204
+02-04-2018 08:51:48:____562
+02-04-2018 08:51:48:____1098
+02-04-2018 08:51:48:____566
+02-04-2018 08:51:48:____568
+02-04-2018 08:51:48:____563
+02-04-2018 08:51:48:____1080
+02-04-2018 08:51:48:____571
+02-04-2018 08:51:48:____559
+02-04-2018 08:51:48:____565
+02-04-2018 08:51:48:____1146
+02-04-2018 08:51:48:____569
+02-04-2018 08:51:48:____570
+02-04-2018 08:51:48:____564
+02-04-2018 08:51:48:____584
+02-04-2018 08:51:48:____921
+02-04-2018 08:55:52:____cloud_deactivation
+02-04-2018 08:55:52:____567
+02-04-2018 08:55:52:____1204
+02-04-2018 08:55:52:____562
+02-04-2018 08:55:52:____1098
+02-04-2018 08:55:52:____566
+02-04-2018 08:55:52:____568
+02-04-2018 08:55:52:____563
+02-04-2018 08:55:52:____1080
+02-04-2018 08:55:52:____571
+02-04-2018 08:55:52:____559
+02-04-2018 08:55:52:____565
+02-04-2018 08:55:52:____1146
+02-04-2018 08:55:52:____569
+02-04-2018 08:55:52:____570
+02-04-2018 08:55:52:____564
+02-04-2018 08:55:52:____584
+02-04-2018 08:55:52:____921
+02-04-2018 09:01:12:check_payment
+02-04-2018 09:01:12:processRequest - check
+02-04-2018 09:01:12:Array
+(
+    [TransactionId] => 45464032
+    [Amount] => 1972.00
+    [Currency] => RUB
+    [PaymentAmount] => 1972.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 191
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 32432
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-04-02 09:01:12
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/24
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 191 на \"http://cloud2.web-sputnik.com\" от 02-04-2018 09:00:58
+    [TestMode] => 1
+    [Status] => Completed
+)
+
+02-04-2018 09:01:12:processCheckAction
+02-04-2018 09:01:12:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => jE0ChIqF/2MBM3R24pkoB1JbShXFWTCjEVTunPYybGA=
+    [------] =>             
+)
+
+02-04-2018 09:01:12:jE0ChIqF/2MBM3R24pkoB1JbShXFWTCjEVTunPYybGA=
+02-04-2018 09:01:12:CorrectSum
+02-04-2018 09:01:12:Проверка заказа
+02-04-2018 09:01:12:{"CODE":0}
+02-04-2018 09:01:16:check_payment
+02-04-2018 09:01:16:processRequest - pay
+02-04-2018 09:01:16:Array
+(
+    [TransactionId] => 45464032
+    [Amount] => 1972.00
+    [Currency] => RUB
+    [PaymentAmount] => 1972.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 191
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 32432
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-04-02 09:01:15
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/24
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 191 на \"http://cloud2.web-sputnik.com\" от 02-04-2018 09:00:58
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+)
+
+02-04-2018 09:01:17:PAY_COMPLETE
+02-04-2018 09:01:17:Array
+(
+    [TransactionId] => 45464032
+    [Amount] => 1972.00
+    [Currency] => RUB
+    [PaymentAmount] => 1972.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 191
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => 32432
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-04-02 09:01:15
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/24
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 191 на \"http://cloud2.web-sputnik.com\" от 02-04-2018 09:00:58
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+)
+
+02-04-2018 09:01:17:Array
+(
+    [id] => 191
+    [totalprice] => 1972.00
+    [statusno] => 0
+    [sessionid] => 6381522659411
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 1
+    [date] => 1522659411
+    [gateway] => cloudpayments
+    [billing_country] => AZ
+    [shipping_country] => BH
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+02-04-2018 09:01:17:KKT_ERROR
+02-04-2018 09:01:17:Отсутствует ИНН; Отсутствует информация о товарах/услугах; Общая сумма всех позицией должна быть больше нуля
+02-04-2018 09:30:08:____cloud_deactivation
+02-04-2018 09:30:08:____1266
+02-04-2018 09:30:08:____1276
+02-04-2018 09:30:08:____1261
+02-04-2018 09:30:08:____1274
+02-04-2018 09:30:08:____1265
+02-04-2018 09:30:08:____1267
+02-04-2018 09:30:08:____1262
+02-04-2018 09:30:08:____1273
+02-04-2018 09:30:08:____1270
+02-04-2018 09:30:08:____1260
+02-04-2018 09:30:08:____1264
+02-04-2018 09:30:08:____1275
+02-04-2018 09:30:08:____1268
+02-04-2018 09:30:08:____1269
+02-04-2018 09:30:08:____1263
+02-04-2018 09:30:08:____1272
+02-04-2018 09:30:08:____1271
+03-04-2018 22:51:14:check_payment
+03-04-2018 22:51:14:processRequest - check
+03-04-2018 22:51:14:Array
+(
+    [TransactionId] => 45681270
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 194
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => TSTSVAORPAV
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-03 22:51:11
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 194 на \"http://cloud2.web-sputnik.com\" от 03-04-2018 22:50:06
+    [TestMode] => 1
+    [Status] => Completed
+)
+
+03-04-2018 22:51:14:processCheckAction
+03-04-2018 22:51:14:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => aLeBsBMEWLIVYfBTSnHVUwuNdJsao43cnEBGy/RYx2o=
+    [------] =>             
+)
+
+03-04-2018 22:51:14:aLeBsBMEWLIVYfBTSnHVUwuNdJsao43cnEBGy/RYx2o=
+03-04-2018 22:51:14:CorrectSum
+03-04-2018 22:51:14:Проверка заказа
+03-04-2018 22:51:14:{"CODE":0}
+03-04-2018 22:51:21:check_payment
+03-04-2018 22:51:21:processRequest - pay
+03-04-2018 22:51:21:Array
+(
+    [TransactionId] => 45681270
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 194
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => TSTSVAORPAV
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-03 22:51:18
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 194 на \"http://cloud2.web-sputnik.com\" от 03-04-2018 22:50:06
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+)
+
+03-04-2018 22:51:23:PAY_COMPLETE
+03-04-2018 22:51:23:Array
+(
+    [TransactionId] => 45681270
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 194
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => TSTSVAORPAV
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-03 22:51:18
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 194 на \"http://cloud2.web-sputnik.com\" от 03-04-2018 22:50:06
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+)
+
+03-04-2018 22:51:23:Array
+(
+    [id] => 194
+    [totalprice] => 587.00
+    [statusno] => 0
+    [sessionid] => 1811522795802
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 1
+    [date] => 1522795802
+    [gateway] => cloudpayments
+    [billing_country] => RU
+    [shipping_country] => RU
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+03-04-2018 22:51:23:KKT_ERROR
+03-04-2018 22:51:23:Отсутствует ИНН; Отсутствует информация о товарах/услугах; Общая сумма всех позицией должна быть больше нуля
+04-04-2018 10:26:04:check_payment
+04-04-2018 10:26:04:processRequest - check
+04-04-2018 10:26:04:Array
+(
+    [TransactionId] => 45733372
+    [Amount] => 1728.00
+    [Currency] => RUB
+    [PaymentAmount] => 1728.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 195
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => TSUTSYVDFYSPASR
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 10:25:59
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 195 на \"http://cloud2.web-sputnik.com\" от 04-04-2018 10:25:26
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"3\",\"amount\":\"1728.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+04-04-2018 10:26:04:processCheckAction
+04-04-2018 10:26:04:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => tyadxBiSQDeE0ubChQdE7WznEsxBguwPPm19fQQ3OlQ=
+    [------] =>             
+)
+
+04-04-2018 10:26:04:tyadxBiSQDeE0ubChQdE7WznEsxBguwPPm19fQQ3OlQ=
+04-04-2018 10:26:04:CorrectSum
+04-04-2018 10:26:04:Проверка заказа
+04-04-2018 10:26:04:{"CODE":0}
+04-04-2018 10:26:12:check_payment
+04-04-2018 10:26:12:processRequest - pay
+04-04-2018 10:26:12:Array
+(
+    [TransactionId] => 45733372
+    [Amount] => 1728.00
+    [Currency] => RUB
+    [PaymentAmount] => 1728.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 195
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => TSUTSYVDFYSPASR
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 10:26:07
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 195 на \"http://cloud2.web-sputnik.com\" от 04-04-2018 10:25:26
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"3\",\"amount\":\"1728.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+04-04-2018 10:26:13:PAY_COMPLETE
+04-04-2018 10:26:13:Array
+(
+    [TransactionId] => 45733372
+    [Amount] => 1728.00
+    [Currency] => RUB
+    [PaymentAmount] => 1728.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 195
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => TSUTSYVDFYSPASR
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 10:26:07
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 195 на \"http://cloud2.web-sputnik.com\" от 04-04-2018 10:25:26
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"3\",\"amount\":\"1728.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+04-04-2018 10:26:13:Array
+(
+    [id] => 195
+    [totalprice] => 1728.00
+    [statusno] => 0
+    [sessionid] => 7921522837522
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 1
+    [date] => 1522837522
+    [gateway] => cloudpayments
+    [billing_country] => RU
+    [shipping_country] => RU
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+04-04-2018 10:26:13:KKT_ERROR
+04-04-2018 10:26:13:Отсутствует ИНН
+04-04-2018 15:23:42:check_payment
+04-04-2018 15:23:42:processRequest - check
+04-04-2018 15:23:42:Array
+(
+    [TransactionId] => 45766654
+    [Amount] => 1385.00
+    [Currency] => RUB
+    [PaymentAmount] => 1385.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 197
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => QWEQWE
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-04 15:23:42
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 197 на \"http://cloud2.web-sputnik.com\" от 04-04-2018 15:22:47
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+04-04-2018 15:23:42:processCheckAction
+04-04-2018 15:23:42:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => Mh3ax9DcsgbPxJXNk32HkbSzujZ8GIIVdKSVXs/L7zY=
+    [------] =>             
+)
+
+04-04-2018 15:23:42:Mh3ax9DcsgbPxJXNk32HkbSzujZ8GIIVdKSVXs/L7zY=
+04-04-2018 15:23:42:CorrectSum
+04-04-2018 15:23:42:Проверка заказа
+04-04-2018 15:23:42:{"CODE":0}
+04-04-2018 15:23:43:check_payment
+04-04-2018 15:23:43:processRequest - pay
+04-04-2018 15:23:43:Array
+(
+    [TransactionId] => 45766654
+    [Amount] => 1385.00
+    [Currency] => RUB
+    [PaymentAmount] => 1385.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 197
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => QWEQWE
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-04 15:23:42
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 197 на \"http://cloud2.web-sputnik.com\" от 04-04-2018 15:22:47
+    [AuthCode] => A1B2C3
+    [Token] => 9BBEF19476623CA56C17DA75FD57734DBF82530686043A6E491C6D71BEFE8F6E
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+04-04-2018 15:23:44:PAY_COMPLETE
+04-04-2018 15:23:44:Array
+(
+    [TransactionId] => 45766654
+    [Amount] => 1385.00
+    [Currency] => RUB
+    [PaymentAmount] => 1385.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 197
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => QWEQWE
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-04 15:23:42
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 197 на \"http://cloud2.web-sputnik.com\" от 04-04-2018 15:22:47
+    [AuthCode] => A1B2C3
+    [Token] => 9BBEF19476623CA56C17DA75FD57734DBF82530686043A6E491C6D71BEFE8F6E
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+04-04-2018 15:23:44:Array
+(
+    [id] => 197
+    [totalprice] => 1385.00
+    [statusno] => 0
+    [sessionid] => 7361522855363
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 0
+    [date] => 1522855363
+    [gateway] => cloudpayments
+    [billing_country] => AZ
+    [shipping_country] => AZ
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+04-04-2018 15:23:44:KKT_ERROR
+04-04-2018 15:23:44:Отсутствует ИНН
+04-04-2018 19:53:09:check_payment
+04-04-2018 19:53:09:processRequest - check
+04-04-2018 19:53:09:Array
+(
+    [TransactionId] => 45795447
+    [Amount] => 1374.00
+    [Currency] => RUB
+    [PaymentAmount] => 1374.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 198
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => DSDSDSDSAS
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 19:53:03
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 198 на \"http://cloud2.web-sputnik.com\" от 04-04-2018 19:52:41
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+04-04-2018 19:53:09:processCheckAction
+04-04-2018 19:53:09:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => +UFydIQIO6V5BWdkXTZL+dFAKLVgIS5c6CBR6i9Lm0g=
+    [------] =>             
+)
+
+04-04-2018 19:53:09:+UFydIQIO6V5BWdkXTZL+dFAKLVgIS5c6CBR6i9Lm0g=
+04-04-2018 19:53:09:CorrectSum
+04-04-2018 19:53:09:Проверка заказа
+04-04-2018 19:53:09:{"CODE":0}
+04-04-2018 19:53:15:check_payment
+04-04-2018 19:53:15:processRequest - pay
+04-04-2018 19:53:15:Array
+(
+    [TransactionId] => 45795447
+    [Amount] => 1374.00
+    [Currency] => RUB
+    [PaymentAmount] => 1374.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 198
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => DSDSDSDSAS
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 19:53:09
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 198 на \"http://cloud2.web-sputnik.com\" от 04-04-2018 19:52:41
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+04-04-2018 19:53:16:PAY_COMPLETE
+04-04-2018 19:53:16:Array
+(
+    [TransactionId] => 45795447
+    [Amount] => 1374.00
+    [Currency] => RUB
+    [PaymentAmount] => 1374.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 198
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => DSDSDSDSAS
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 19:53:09
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 198 на \"http://cloud2.web-sputnik.com\" от 04-04-2018 19:52:41
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+04-04-2018 19:53:16:Array
+(
+    [id] => 198
+    [totalprice] => 1374.00
+    [statusno] => 0
+    [sessionid] => 7881522871556
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 1
+    [date] => 1522871556
+    [gateway] => cloudpayments
+    [billing_country] => RU
+    [shipping_country] => RU
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+04-04-2018 19:53:16:KKT_ERROR
+04-04-2018 19:53:16:Отсутствует ИНН
+04-04-2018 19:59:14:check_payment
+04-04-2018 19:59:14:processRequest - check
+04-04-2018 19:59:14:Array
+(
+    [TransactionId] => 45796131
+    [Amount] => 22.00
+    [Currency] => RUB
+    [PaymentAmount] => 22.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 199
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => DSDSDSDSA
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 19:59:14
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => Order № 199 on \"http://cloud2.web-sputnik.com\" from 04-04-2018 19:58:52
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"2\",\"amount\":\"22.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+04-04-2018 19:59:14:processCheckAction
+04-04-2018 19:59:14:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => i5ZV65MKJ53wh3Ca+/ha7XM4XaSss63DsJfNQYS35mY=
+    [------] =>             
+)
+
+04-04-2018 19:59:14:i5ZV65MKJ53wh3Ca+/ha7XM4XaSss63DsJfNQYS35mY=
+04-04-2018 19:59:14:CorrectSum
+04-04-2018 19:59:14:Проверка заказа
+04-04-2018 19:59:14:{"CODE":0}
+04-04-2018 19:59:31:check_payment
+04-04-2018 19:59:31:processRequest - pay
+04-04-2018 19:59:31:Array
+(
+    [TransactionId] => 45796131
+    [Amount] => 22.00
+    [Currency] => RUB
+    [PaymentAmount] => 22.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 199
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => DSDSDSDSA
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 19:59:31
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => Order № 199 on \"http://cloud2.web-sputnik.com\" from 04-04-2018 19:58:52
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"2\",\"amount\":\"22.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+04-04-2018 19:59:32:PAY_COMPLETE
+04-04-2018 19:59:32:Array
+(
+    [TransactionId] => 45796131
+    [Amount] => 22.00
+    [Currency] => RUB
+    [PaymentAmount] => 22.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 199
+    [AccountId] => 1
+    [SubscriptionId] => 
+    [Name] => DSDSDSDSA
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 19:59:31
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => Order № 199 on \"http://cloud2.web-sputnik.com\" from 04-04-2018 19:58:52
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"2\",\"amount\":\"22.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+04-04-2018 19:59:32:Array
+(
+    [id] => 199
+    [totalprice] => 22.00
+    [statusno] => 0
+    [sessionid] => 8401522871928
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 1
+    [date] => 1522871928
+    [gateway] => cloudpayments
+    [billing_country] => RU
+    [shipping_country] => RU
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+04-04-2018 19:59:32:KKT_ERROR
+04-04-2018 19:59:32:Отсутствует ИНН
+04-04-2018 20:02:29:check_payment
+04-04-2018 20:02:29:processRequest - refund
+04-04-2018 20:02:29:Array
+(
+    [TransactionId] => 45796520
+    [PaymentTransactionId] => 45796131
+    [Amount] => 22.00
+    [OperationType] => Refund
+    [InvoiceId] => 199
+    [AccountId] => 1
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 20:02:23
+    [Data] => {\"CloudPayments\":{\"CustomerReceipt\":{\"Email\":\"Kaveshnikovav@gmail.com\",\"Phone\":null,\"Items\":[{\"Label\":\"Товар 1\",\"Price\":11.0,\"Quantity\":2.0,\"Amount\":22.0,\"Department\":null,\"Vat\":118.0,\"EAN13\":null,\"AgentSign\":null,\"CalculationMethod\":0,\"CalculationObject\":0,\"MeasurementUnit\":null,\"NomenclatureCode\":null,\"AgentData\":null,\"PurveyorData\":null}],\"TaxationSystem\":0}}}
+)
+
+04-04-2018 20:54:24:change_purchase_log_status - order_id:198 old_status:3 - new_status:31
+04-04-2018 20:54:24:refund
+04-04-2018 20:54:24:Array
+(
+    [id] => 198
+    [totalprice] => 1374.00
+    [statusno] => 0
+    [sessionid] => 7881522871556
+    [transactid] => 45795447
+    [authcode] => 
+    [processed] => 31
+    [user_ID] => 1
+    [date] => 1522871596
+    [gateway] => cloudpayments
+    [billing_country] => RU
+    [shipping_country] => RU
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+04-04-2018 20:54:24:https://api.cloudpayments.ru/payments/refund
+04-04-2018 20:54:24:Success
+04-04-2018 20:54:24:check_payment
+04-04-2018 20:54:24:processRequest - refund
+04-04-2018 20:54:24:Array
+(
+    [TransactionId] => 45800745
+    [PaymentTransactionId] => 45795447
+    [Amount] => 1374.00
+    [OperationType] => Refund
+    [InvoiceId] => 198
+    [AccountId] => 1
+    [Email] => kaveshnikovav@gmail.com
+    [DateTime] => 2018-04-04 20:54:18
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"Kaveshnikovav@gmail.com\",\"phone\":null}}}
+)
+
+05-04-2018 09:02:02:check_payment
+05-04-2018 09:02:02:processRequest - check
+05-04-2018 09:02:02:Array
+(
+    [TransactionId] => 45851494
+    [Amount] => 11.00
+    [Currency] => RUB
+    [PaymentAmount] => 11.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 200
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => MITSETTA
+    [Email] => tory_nika@mail.ru
+    [DateTime] => 2018-04-05 09:02:02
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/88
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 200 на \"http://cloud2.web-sputnik.com\" от 05-04-2018 09:01:32
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"tory_nika@mail.ru\",\"phone\":null}}}
+)
+
+05-04-2018 09:02:02:processCheckAction
+05-04-2018 09:02:02:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => 8PdbeC8xzLm8rbVYDDPKqmsKqlFnZsxLwiqOCiHLP7Y=
+    [------] =>             
+)
+
+05-04-2018 09:02:02:8PdbeC8xzLm8rbVYDDPKqmsKqlFnZsxLwiqOCiHLP7Y=
+05-04-2018 09:02:02:CorrectSum
+05-04-2018 09:02:02:Проверка заказа
+05-04-2018 09:02:02:{"CODE":0}
+05-04-2018 09:02:10:check_payment
+05-04-2018 09:02:10:processRequest - pay
+05-04-2018 09:02:10:Array
+(
+    [TransactionId] => 45851494
+    [Amount] => 11.00
+    [Currency] => RUB
+    [PaymentAmount] => 11.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 200
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => MITSETTA
+    [Email] => tory_nika@mail.ru
+    [DateTime] => 2018-04-05 09:02:03
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/88
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 200 на \"http://cloud2.web-sputnik.com\" от 05-04-2018 09:01:32
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"tory_nika@mail.ru\",\"phone\":null}}}
+)
+
+05-04-2018 09:02:11:PAY_COMPLETE
+05-04-2018 09:02:11:Array
+(
+    [TransactionId] => 45851494
+    [Amount] => 11.00
+    [Currency] => RUB
+    [PaymentAmount] => 11.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 200
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => MITSETTA
+    [Email] => tory_nika@mail.ru
+    [DateTime] => 2018-04-05 09:02:03
+    [IpAddress] => 5.228.252.47
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/88
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 200 на \"http://cloud2.web-sputnik.com\" от 05-04-2018 09:01:32
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"tory_nika@mail.ru\",\"phone\":null}}}
+)
+
+05-04-2018 09:02:11:Array
+(
+    [id] => 200
+    [totalprice] => 11.00
+    [statusno] => 0
+    [sessionid] => 2771522918889
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 0
+    [date] => 1522918889
+    [gateway] => cloudpayments
+    [billing_country] => RU
+    [shipping_country] => 
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+05-04-2018 09:02:11:KKT_ERROR
+05-04-2018 09:02:11:Отсутствует ИНН
+09-04-2018 07:07:56:check_payment
+09-04-2018 07:07:56:processRequest - check
+09-04-2018 07:07:56:Array
+(
+    [TransactionId] => 46362153
+    [Amount] => 11.00
+    [Currency] => RUB
+    [PaymentAmount] => 11.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 201
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => QWEQWEQ
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:07:56
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 201 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 07:07:39
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+09-04-2018 07:07:56:processCheckAction
+09-04-2018 07:07:56:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => 6JwectTiFlb4sVe8tZxlHBVsD/dDvcVGGw9icuO6hRk=
+    [------] =>             
+)
+
+09-04-2018 07:07:56:6JwectTiFlb4sVe8tZxlHBVsD/dDvcVGGw9icuO6hRk=
+09-04-2018 07:07:56:CorrectSum
+09-04-2018 07:07:56:Проверка заказа
+09-04-2018 07:07:56:{"CODE":0}
+09-04-2018 07:07:57:check_payment
+09-04-2018 07:07:57:processRequest - pay
+09-04-2018 07:07:57:Array
+(
+    [TransactionId] => 46362153
+    [Amount] => 11.00
+    [Currency] => RUB
+    [PaymentAmount] => 11.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 201
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => QWEQWEQ
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:07:57
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 201 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 07:07:39
+    [AuthCode] => A1B2C3
+    [Token] => 9BBEF19476623CA56C17DA75FD57734DBF82530686043A6E491C6D71BEFE8F6E
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+09-04-2018 07:07:58:PAY_COMPLETE
+09-04-2018 07:07:58:Array
+(
+    [TransactionId] => 46362153
+    [Amount] => 11.00
+    [Currency] => RUB
+    [PaymentAmount] => 11.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 201
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => QWEQWEQ
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:07:57
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 201 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 07:07:39
+    [AuthCode] => A1B2C3
+    [Token] => 9BBEF19476623CA56C17DA75FD57734DBF82530686043A6E491C6D71BEFE8F6E
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+09-04-2018 07:07:58:Array
+(
+    [id] => 201
+    [totalprice] => 11.00
+    [statusno] => 0
+    [sessionid] => 6041523257656
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 0
+    [date] => 1523257656
+    [gateway] => cloudpayments
+    [billing_country] => BS
+    [shipping_country] => AZ
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+09-04-2018 07:07:58:KKT_ERROR
+09-04-2018 07:07:58:Отсутствует ИНН
+09-04-2018 07:21:16:change_purchase_log_status - order_id:201 old_status:3 - new_status:31
+09-04-2018 07:21:16:refund
+09-04-2018 07:21:16:Array
+(
+    [id] => 201
+    [totalprice] => 11.00
+    [statusno] => 0
+    [sessionid] => 6041523257656
+    [transactid] => 46362153
+    [authcode] => 
+    [processed] => 31
+    [user_ID] => 0
+    [date] => 1523257678
+    [gateway] => cloudpayments
+    [billing_country] => BS
+    [shipping_country] => AZ
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+09-04-2018 07:21:16:https://api.cloudpayments.ru/payments/refund
+09-04-2018 07:21:17:Success
+09-04-2018 07:21:17:check_payment
+09-04-2018 07:21:17:processRequest - refund
+09-04-2018 07:21:17:Array
+(
+    [TransactionId] => 46363366
+    [PaymentTransactionId] => 46362153
+    [Amount] => 11.00
+    [OperationType] => Refund
+    [InvoiceId] => 201
+    [AccountId] => 0
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:21:16
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+09-04-2018 07:21:28:change_purchase_log_status - order_id:202 old_status:2 - new_status:3
+09-04-2018 07:23:03:check_payment
+09-04-2018 07:23:03:processRequest - check
+09-04-2018 07:23:03:Array
+(
+    [TransactionId] => 46363557
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 203
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => ITSUITSU
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:23:03
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 203 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 07:22:51
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+09-04-2018 07:23:03:processCheckAction
+09-04-2018 07:23:03:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => Sa2xy9pPANSbVRuC31Krpjn/KIG92/WzQ5EpOkKnMgM=
+    [------] =>             
+)
+
+09-04-2018 07:23:03:Sa2xy9pPANSbVRuC31Krpjn/KIG92/WzQ5EpOkKnMgM=
+09-04-2018 07:23:03:CorrectSum
+09-04-2018 07:23:03:Проверка заказа
+09-04-2018 07:23:03:{"CODE":0}
+09-04-2018 07:23:04:check_payment
+09-04-2018 07:23:04:processRequest - pay
+09-04-2018 07:23:04:Array
+(
+    [TransactionId] => 46363557
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 203
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => ITSUITSU
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:23:03
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 203 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 07:22:51
+    [AuthCode] => A1B2C3
+    [Token] => 9BBEF19476623CA56C17DA75FD57734DBF82530686043A6E491C6D71BEFE8F6E
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+09-04-2018 07:23:05:PAY_COMPLETE
+09-04-2018 07:23:05:Array
+(
+    [TransactionId] => 46363557
+    [Amount] => 587.00
+    [Currency] => RUB
+    [PaymentAmount] => 587.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 203
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => ITSUITSU
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:23:03
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 203 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 07:22:51
+    [AuthCode] => A1B2C3
+    [Token] => 9BBEF19476623CA56C17DA75FD57734DBF82530686043A6E491C6D71BEFE8F6E
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+09-04-2018 07:23:05:Array
+(
+    [id] => 203
+    [totalprice] => 587.00
+    [statusno] => 0
+    [sessionid] => 2731523258566
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 0
+    [date] => 1523258566
+    [gateway] => cloudpayments
+    [billing_country] => BS
+    [shipping_country] => AZ
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+09-04-2018 07:23:05:KKT_ERROR
+09-04-2018 07:23:05:Отсутствует ИНН
+09-04-2018 07:29:08:change_purchase_log_status - order_id:203 old_status:3 - new_status:31
+09-04-2018 07:29:08:refund
+09-04-2018 07:29:08:Array
+(
+    [id] => 203
+    [totalprice] => 587.00
+    [statusno] => 0
+    [sessionid] => 2731523258566
+    [transactid] => 46363557
+    [authcode] => 
+    [processed] => 31
+    [user_ID] => 0
+    [date] => 1523258585
+    [gateway] => cloudpayments
+    [billing_country] => BS
+    [shipping_country] => AZ
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+09-04-2018 07:29:08:https://api.cloudpayments.ru/payments/refund
+09-04-2018 07:29:08:Success
+09-04-2018 07:29:08:check_payment
+09-04-2018 07:29:08:processRequest - refund
+09-04-2018 07:29:08:Array
+(
+    [TransactionId] => 46364151
+    [PaymentTransactionId] => 46363557
+    [Amount] => 587.00
+    [OperationType] => Refund
+    [InvoiceId] => 203
+    [AccountId] => 0
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:29:07
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null},{\"label\":\"56576\",\"price\":\"576.00\",\"quantity\":\"1\",\"amount\":\"576.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":null}}}
+)
+
+09-04-2018 07:58:52:check_payment
+09-04-2018 07:58:52:processRequest - check
+09-04-2018 07:58:52:Array
+(
+    [TransactionId] => 46367054
+    [Amount] => 809.00
+    [Currency] => RUB
+    [PaymentAmount] => 809.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 206
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => QWEQWE
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:58:52
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 206 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 07:58:38
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null},{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":\"+79859627127\"}}}
+)
+
+09-04-2018 07:58:52:processCheckAction
+09-04-2018 07:58:52:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => SIxOf4gPpHW1CpVW2slqDPsBgsneCmgkThWa3cqDF2M=
+    [------] =>             
+)
+
+09-04-2018 07:58:52:SIxOf4gPpHW1CpVW2slqDPsBgsneCmgkThWa3cqDF2M=
+09-04-2018 07:58:52:CorrectSum
+09-04-2018 07:58:52:Проверка заказа
+09-04-2018 07:58:52:{"CODE":0}
+09-04-2018 07:58:53:check_payment
+09-04-2018 07:58:53:processRequest - pay
+09-04-2018 07:58:53:Array
+(
+    [TransactionId] => 46367054
+    [Amount] => 809.00
+    [Currency] => RUB
+    [PaymentAmount] => 809.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 206
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => QWEQWE
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:58:52
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 206 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 07:58:38
+    [AuthCode] => A1B2C3
+    [Token] => 9BBEF19476623CA56C17DA75FD57734DBF82530686043A6E491C6D71BEFE8F6E
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null},{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":\"+79859627127\"}}}
+)
+
+09-04-2018 07:58:54:PAY_COMPLETE
+09-04-2018 07:58:54:Array
+(
+    [TransactionId] => 46367054
+    [Amount] => 809.00
+    [Currency] => RUB
+    [PaymentAmount] => 809.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 206
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => QWEQWE
+    [Email] => d.averyanov@cloudpayments.ru
+    [DateTime] => 2018-04-09 07:58:52
+    [IpAddress] => 185.8.6.164
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 411111
+    [CardLastFour] => 1111
+    [CardType] => Visa
+    [CardExpDate] => 11/22
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 206 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 07:58:38
+    [AuthCode] => A1B2C3
+    [Token] => 9BBEF19476623CA56C17DA75FD57734DBF82530686043A6E491C6D71BEFE8F6E
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null},{\"label\":\"79879\",\"price\":\"798.00\",\"quantity\":\"1\",\"amount\":\"798.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"d.averyanov@cloudpayments.ru\",\"phone\":\"+79859627127\"}}}
+)
+
+09-04-2018 07:58:54:Array
+(
+    [id] => 206
+    [totalprice] => 809.00
+    [statusno] => 0
+    [sessionid] => 6431523260708
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 0
+    [date] => 1523260708
+    [gateway] => cloudpayments
+    [billing_country] => BS
+    [shipping_country] => AZ
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
+09-04-2018 07:58:54:KKT_ERROR
+09-04-2018 07:58:54:Отсутствует ИНН
+09-04-2018 08:28:00:check_payment
+09-04-2018 08:28:00:processRequest - check
+09-04-2018 08:28:00:Array
+(
+    [TransactionId] => 46370057
+    [Amount] => 11.00
+    [Currency] => RUB
+    [PaymentAmount] => 11.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 207
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => 42432
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-04-09 08:27:58
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/23
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 207 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 08:27:41
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":\"7777777777777\"}}}
+)
+
+09-04-2018 08:28:00:processCheckAction
+09-04-2018 08:28:00:Array
+(
+    [Connection] => keep-alive
+    [Host] => cloud2.web-sputnik.com
+    [User-Agent] => CloudPayments
+    [Content-Hmac] => Kyu4MKAdXXlBxuWiH11+XiB6+T39efXE5RLXVgsQ/m8=
+    [------] =>             
+)
+
+09-04-2018 08:28:00:Kyu4MKAdXXlBxuWiH11+XiB6+T39efXE5RLXVgsQ/m8=
+09-04-2018 08:28:00:CorrectSum
+09-04-2018 08:28:00:Проверка заказа
+09-04-2018 08:28:00:{"CODE":0}
+09-04-2018 08:28:04:check_payment
+09-04-2018 08:28:04:processRequest - pay
+09-04-2018 08:28:04:Array
+(
+    [TransactionId] => 46370057
+    [Amount] => 11.00
+    [Currency] => RUB
+    [PaymentAmount] => 11.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 207
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => 42432
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-04-09 08:28:02
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/23
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 207 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 08:27:41
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":\"7777777777777\"}}}
+)
+
+09-04-2018 08:28:05:PAY_COMPLETE
+09-04-2018 08:28:05:Array
+(
+    [TransactionId] => 46370057
+    [Amount] => 11.00
+    [Currency] => RUB
+    [PaymentAmount] => 11.00
+    [PaymentCurrency] => RUB
+    [OperationType] => Payment
+    [InvoiceId] => 207
+    [AccountId] => 0
+    [SubscriptionId] => 
+    [Name] => 42432
+    [Email] => dani1a@ya.ru
+    [DateTime] => 2018-04-09 08:28:02
+    [IpAddress] => 128.69.103.172
+    [IpCountry] => RU
+    [IpCity] => Москва
+    [IpRegion] => Москва
+    [IpDistrict] => Центральный федеральный округ
+    [IpLatitude] => 55.755787
+    [IpLongitude] => 37.617634
+    [CardFirstSix] => 424242
+    [CardLastFour] => 4242
+    [CardType] => Visa
+    [CardExpDate] => 12/23
+    [Issuer] => 
+    [IssuerBankCountry] => 
+    [Description] => заказ № 207 на \"http://cloud2.web-sputnik.com\" от 09-04-2018 08:27:41
+    [AuthCode] => A1B2C3
+    [Token] => 477BBA133C182267FE5F086924ABDC5DB71F77BFC27F01F2843F2CDC69D89F05
+    [TestMode] => 1
+    [Status] => Completed
+    [Data] => {\"cloudPayments\":{\"customerReceipt\":{\"Items\":[{\"label\":\"Товар 1\",\"price\":\"11.00\",\"quantity\":\"1\",\"amount\":\"11.00\",\"vat\":\"118\",\"ean13\":null}],\"taxationSystem\":\"0\",\"email\":\"dani1a@ya.ru\",\"phone\":\"7777777777777\"}}}
+)
+
+09-04-2018 08:28:05:Array
+(
+    [id] => 207
+    [totalprice] => 11.00
+    [statusno] => 0
+    [sessionid] => 7711523262458
+    [transactid] => 
+    [authcode] => 
+    [processed] => 2
+    [user_ID] => 0
+    [date] => 1523262458
+    [gateway] => cloudpayments
+    [billing_country] => BS
+    [shipping_country] => AF
+    [base_shipping] => 0.00
+    [email_sent] => 1
+    [stock_adjusted] => 0
+    [discount_value] => 0.00
+    [discount_data] => 
+    [track_id] => 
+    [billing_region] => 
+    [shipping_region] => 
+    [find_us] => 
+    [engravetext] => 0.000000
+    [shipping_method] => 
+    [shipping_option] => 
+    [affiliate_id] => 
+    [plugin_version] => 3.13.1
+    [notes] => 
+    [wpec_taxes_total] => 0.00
+    [wpec_taxes_rate] => 0.00
+)
+
