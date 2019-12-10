@@ -4,8 +4,10 @@
 
 
 ### Возможности:  
-• Одностадийная схема оплаты;   
-• Возврат платежей из ЛК CMS;    
+• Одностадийная схема оплаты;  
+• Двухстадийная схема оплаты;  
+• Выбор дизайна виджета;  
+• Возврат платежей из ЛК CMS;  
 • Отправка чеков по email;
 
 ### Совместимость
@@ -61,10 +63,12 @@
 
 Напротив каждой позиции вставьте линк ниже для соответсвующего вебхука:
 
-* (Check) 		#SITE_URL#h?action=check
-* (Fail) 		#SITE_URL#?action=fail
-* (Pay) 		#SITE_URL#?action=pay
-* (Refund)		#SITE_URL#?action=refund
+* (Check) 		#SITE_URL#h?action=check  
+* (Pay) 		#SITE_URL#?action=pay  
+* (Confirm) 	#SITE_URL#?action=confirm  
+* (Fail) 		#SITE_URL#?action=fail  
+* (Cancel) 		#SITE_URL#?action=cancel  
+* (Refund)		#SITE_URL#?action=refund  
 
 Где #SITE_URL# - адрес сайта. Например: http://domain.ru
 
@@ -74,3 +78,14 @@
 ![0](img/img7.png)
 
 После чего будет отправлен refund запрос на возврат оплаты.
+
+#### Changelog
+
+= 1.1 = 
+* Добавление выбора языка виджета;  
+* Добавление выбора валюты;  
+* Добавление выбора дизайна виджета;   
+* Правка значений ставок НДС;  
+
+= 1.0 =
+* Публикация модуля.
