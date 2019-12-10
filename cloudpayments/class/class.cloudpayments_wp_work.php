@@ -1,45 +1,7 @@
 <?php
 class CloudpaymentHandler
 {
-    /*
-	public function initiatePay(Payment $payment, Request $request = null)
-	{
-		$params = array(
-			'URL' => $this->getUrl($payment, 'pay'),
-			'PS_MODE' => $this->service->getField('PS_MODE'),
-			'BX_PAYSYSTEM_CODE' => $this->service->getField('ID')
-		);
-
-		$this->setExtraParams($params);
-
-		return $this->showTemplate($payment, "template");
-	}  */
-
-
-   /*
-	public static function getIndicativeFields()
-	{
-		return array('BX_HANDLER' => 'CLOUDPAYMENT');
-	}   */
-
-
-     /*
-    static  public function isMyResponse(Request $request, $paySystemId)
-    {
-        return true;
-    }    */
-    
-
-
-   /*
-	static protected function isMyResponseExtended(Request $request, $paySystemId)
-	{
-	    $id = $request->get('BX_PAYSYSTEM_CODE');
-		return $id == $paySystemId;
-	}   */
-
-
-    function get_params()   ///OK
+    function get_params()
     {
       global $wpdb;
       $cloud_params=array();
@@ -53,7 +15,7 @@ class CloudpaymentHandler
       return $cloud_params;
     }
 
-  	public function refund($order_id)         ///OK
+  	public function refund($order_id)
   	{
           global $wpdb;
           self::addError("refund");
@@ -106,8 +68,7 @@ class CloudpaymentHandler
           
   	}
        
-       
-    function get_lang_message($ID)    ///OK
+    function get_lang_message($ID)
     {           
          $lang=get_option('cloudpayments_language'); 
          include($_SERVER['DOCUMENT_ROOT']."/wp-content/plugins/cloudpayments/class/lang/".$lang."/index.php");
@@ -118,11 +79,8 @@ class CloudpaymentHandler
          if ($encoding=='utf-8') return $MESS[$ID];
          else  return iconv("utf-8","cp1251",$MESS[$ID]);
     }
-      
-      
-       
-                                           
-    function Object_to_array($data)      //OK
+                                          
+    function Object_to_array($data)
     {
         if (is_array($data) || is_object($data))
         {
@@ -136,7 +94,7 @@ class CloudpaymentHandler
         return $data;
     }
     
-    private function CheckHMac($APIPASS)   //OK
+    private function CheckHMac($APIPASS)
     {
 
         $headers = $this->detallheaders();   
@@ -155,7 +113,7 @@ class CloudpaymentHandler
         else return false;
     }
     
-    private function detallheaders()  ///OK
+    private function detallheaders()
     {
         if (!is_array($_SERVER)) {
             return array();
@@ -169,7 +127,7 @@ class CloudpaymentHandler
         return $headers;
     }
 
-    private function isCorrectOrderID($order, $request)    ///OK
+    private function isCorrectOrderID($order, $request)
     {
         $oid = $request['InvoiceId'];
         $paymentid = $order['id'];
@@ -177,48 +135,46 @@ class CloudpaymentHandler
         return round($paymentSum, 2) == round($sum, 2);
     }
 
-  	private function isCorrectSum($request,$order)  ////ok
+  	private function isCorrectSum($request,$order)
   	{
-  		$sum = $request['Amount']; ////$this->addError($errorMessage); isCorrectSum
+  		$sum = $request['Amount'];
   		$paymentSum = $order['totalprice'];
   
   		return round($paymentSum, 2) == round($sum, 2);
   	}
 
-  	public function sendResponse(PaySystem\ServiceResult $result, Request $request)    ///????
+  	public function sendResponse(PaySystem\ServiceResult $result, Request $request)
   	{
   		global $APPLICATION;
-  	////	$APPLICATION->RestartBuffer();
   		$data = $result->getData();
   		$res['code']=$data['CODE'];
           echo json_encode($res);
   		die();
   	}  
 
-  	public function getPaymentIdFromRequest(Request $request)   ////?????
+  	public function getPaymentIdFromRequest(Request $request)
   	{
   	    $order=\Bitrix\Sale\Order::load($request->get('InvoiceId'));
   	    foreach($order->getPaymentCollection() as $payment){
   			$l[]=$payment->getField("ID");
   		}
-  //		$l=$order->getPaymentSystemId();
   	    return current($l);
   	}
 
-    public function isPaid($order)     ///OK
+    public function isPaid($order)
     {
         if ($order['processed']==3) return true;
         else return false;
     }
     
-    public function isCanceled($order)       //OK
+    public function isCanceled($order)
     {
         if ($order['processed']==6) return true;
         else return false;
     }
   
    
-  	public function processCheckAction($request,$order)     ///ok
+  	public function processCheckAction($request,$order)
   	{
           $this->addError('processCheckAction');
       
@@ -292,72 +248,82 @@ class CloudpaymentHandler
         return $result;
     }
     
-    
-    private function processSuccessAction($request,$order)       ///OK
+    private function processSuccessAction($request,$order)
     {
+       
         global $wpdb;
-        $TYPE_SYSTEM=get_option('cloudpayments_type_system');    //двухстадийка - 1 одностадийка - 0  
-        $data['CODE'] = 0;
-        ////ставим статус оплаты                           					
-      //  $wpdb->update('wp_wpsc_purchase_logs',array('processed' => '3','transactid'=>$request['TransactionId'],'date'=>time()),array('id' => $order['id']));
-     
-        $purchase_log = new WPSC_Purchase_Log($order['sessionid'], 'sessionid' );
-      	$purchase_log->set('processed', WPSC_Purchase_Log::ACCEPTED_PAYMENT );
-      	$purchase_log->save();
-        $wpdb->update('wp_wpsc_purchase_logs',array('transactid'=>$request['TransactionId'],'date'=>time()),array('id' => $order['id']));
+        $TYPE_SYSTEM = get_option('cloudpayments_payment_schemes');
+        $TYPE_Status = $request['Status'];
+        if ($TYPE_SYSTEM == 'auth' && $TYPE_Status == 'Authorized') {
+            $STATUS_AUTH = self::get_status_change_auth();
+            $purchase_log = new WPSC_Purchase_Log($order['sessionid'], 'sessionid' );
+      	    $purchase_log->set('processed', WPSC_Purchase_Log::INCOMPLETE_SALE );
+      	    $purchase_log->save();
+            $wpdb->update('wp_wpsc_purchase_logs',array('processed'=>$STATUS_AUTH,'transactid'=>$request['TransactionId'],'date'=>time()),array('id' => $order['id']));
+            $data['CODE'] = 0;
+            echo json_encode($data);
+        }
+        else {
+       
+            $data['CODE'] = 0;
+            $purchase_log = new WPSC_Purchase_Log($order['sessionid'], 'sessionid' );
+      	    $purchase_log->set('processed', WPSC_Purchase_Log::ACCEPTED_PAYMENT );
+      	    $purchase_log->save();
+            $wpdb->update('wp_wpsc_purchase_logs',array('transactid'=>$request['TransactionId'],'date'=>time()),array('id' => $order['id']));
         
-        $this->addError('PAY_COMPLETE');
-        $params=self::get_params();
-        $this->addError(print_r($request,true));
-        $this->addError(print_r($order,true));
+            $this->addError('PAY_COMPLETE');
+            $params=self::get_params();
+            $this->addError(print_r($request,true));
+            $this->addError(print_r($order,true));
         
-        $data_kkt=array(
-          "TYPE"=>"Income",
-          "EMAIL"=>$request["Email"],
-          "PHONE"=>"",
-          "ORDER_ID"=>$order['id'],
-          "USER_ID"=>$order["user_ID"],
-        );
+            $data_kkt=array(
+                "TYPE"=>"Income",
+                "calculationPlace"=>"www.".$_SERVER["SERVER_NAME"],
+                "EMAIL"=>$request["Email"],
+                "PHONE"=>"",
+                "ORDER_ID"=>$order['id'],
+                "USER_ID"=>$order["user_ID"],
+            );
           
-        if($params['cloudpayments_USE_CLOUD_KASSIR']!='N'):
-            if (!self::isPaid($order)):
-                  $items=array();
-                  $local_currency_shipping=0;
+            if($params['cloudpayments_USE_CLOUD_KASSIR']!='N'):
+                if (!self::isPaid($order)):
+                    $items=array();
+                    $local_currency_shipping=0;
                 	$cart_sql = "SELECT * FROM `wp_wpsc_cart_contents` WHERE `purchaseid`='".$order['id']."'";
                 	$cart = $wpdb->get_results($cart_sql,ARRAY_A);
                   
                 	foreach($cart as $item):
-                      $items[]=array(
+                        $items[]=array(
                               'label'=>$item['name'],
                               'price'=>number_format($item['price'],2,".",''),
                               'quantity'=>$item['quantity'],
                               'amount'=>number_format(floatval($item['price']*$item['quantity']),2,".",''),
                               'vat'=>$params['cloudpayments_vat'], ///
                               'ean13'=>null
-                      ); 
-                      $local_currency_shipping = $local_currency_shipping+$item['pnp'];   
-                  endforeach; 
+                        ); 
+                        $local_currency_shipping = $local_currency_shipping+$item['pnp'];   
+                    endforeach; 
                   
-
                   //Добавляем доставку
-                  if ($local_currency_shipping > 0): 
-                      $items[] = array(
-                          'label' => self::get_lang_message('DELIVERY_TXT'),
-                          'price' => number_format($local_currency_shipping, 2, ".", ''),
-                          'quantity' => 1,
-                          'amount' => number_format($local_currency_shipping, 2, ".", ''),
-                          'vat' => $params['cloudpayments_vat'],   ///
-                          'ean13' => null
-                      );
-                  endif;      
-                  $data_kkt['ITEMS']=$items;
+                    if ($local_currency_shipping > 0): 
+                        $items[] = array(
+                            'label' => self::get_lang_message('DELIVERY_TXT'),
+                            'price' => number_format($local_currency_shipping, 2, ".", ''),
+                            'quantity' => 1,
+                            'amount' => number_format($local_currency_shipping, 2, ".", ''),
+                            'vat' => $params['cloudpayments_vat'],   ///
+                            'ean13' => null
+                        );
+                    endif;      
+                    $data_kkt['ITEMS']=$items;
+                endif;
             endif;
-        endif;
 
-        echo json_encode($data);
+            echo json_encode($data);
+        }
     }
     
-    private function processRefundAction($request, $order)  ///OK
+    private function processRefundAction($request, $order)
     {
         global $wpdb;
         $STATUS_CHANCEL= self::get_status_change();
@@ -365,7 +331,6 @@ class CloudpaymentHandler
       	$purchase_log->set('processed', WPSC_Purchase_Log::INCOMPLETE_SALE );
       	$purchase_log->save();
         $wpdb->update('wp_wpsc_purchase_logs',array('processed'=>$STATUS_CHANCEL,'transactid'=>$request['TransactionId'],'date'=>time()),array('id' => $order['id']));
-        $TYPE_SYSTEM=get_option('cloudpayments_type_system');    //двухстадийка - 1 одностадийка - 0
 
         $data['CODE'] = 0;
         echo json_encode($data);
@@ -375,8 +340,13 @@ class CloudpaymentHandler
     {
        return get_option("cloudpayments_change_status");
     }
+    
+    public function get_status_change_auth()
+    {
+       return get_option("cloudpayments_change_status_auth");
+    }
 
-	private function extractDataFromRequest($request)     ///OK
+	private function extractDataFromRequest($request) 
 	{
 		return array(
 			'HEAD' => $request->get('action').'Response',
@@ -384,8 +354,7 @@ class CloudpaymentHandler
 		);
 	}
 
-
-  function cur_json_encode($a=false)      /////OK
+  function cur_json_encode($a=false)
   {
       if (is_null($a) || is_resource($a)) {
           return 'null';
@@ -399,15 +368,9 @@ class CloudpaymentHandler
       
       if (is_scalar($a)) {
           if (is_float($a)) {
-              //Always use "." for floats.
               $a = str_replace(',', '.', strval($a));
           }
-  
-          // All scalars are converted to strings to avoid indeterminism.
-          // PHP's "1" and 1 are equal for all PHP operators, but
-          // JS's "1" and 1 are not. So if we pass "1" or 1 from the PHP backend,
-          // we should get the same result in the JS frontend (string).
-          // Character replacements for JSON.
+
           static $jsonReplaces = array(
               array("\\", "/", "\n", "\t", "\r", "\b", "\f", '"'),
               array('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"')
@@ -442,26 +405,18 @@ class CloudpaymentHandler
       }
   }
 
-              
-
-
-	private function processCancelAction(Payment $payment, Request $request)
+	private function processCancelAction($request,$order)
 	{
-		$result = new PaySystem\ServiceResult();
-		$data = $this->extractDataFromRequest($request);
-
-
-			$data['CODE'] = 0;
-			$result->setOperationType(PaySystem\ServiceResult::MONEY_LEAVING);
-
-
-		$result->setData($data);
-
-		return $result;
+	        global $wpdb;
+            $purchase_log = new WPSC_Purchase_Log($order['sessionid'], 'sessionid' );
+      	    $purchase_log->set('processed', WPSC_Purchase_Log::PAYMENT_DECLINED );
+      	    $purchase_log->save();
+            $wpdb->update('wp_wpsc_purchase_logs',array('transactid'=>$request['TransactionId'],'date'=>time()),array('id' => $order['id']));
+            $data['CODE'] = 0;
+            echo json_encode($data);
 	}
 
-
-	protected function getUrlList($action)        ///OK
+	protected function getUrlList($action)
 	{
 		$urls=array(
 			'confirm' => 'https://api.cloudpayments.ru/payments/confirm ',
@@ -473,7 +428,7 @@ class CloudpaymentHandler
     return $urls[$action];
 	}
 
-	public function get_order($request)   ///OK
+	public function get_order($request)
   {
         $this->addError('check_payment');
 
@@ -488,8 +443,7 @@ class CloudpaymentHandler
         endif;  
   }
   
-  
-	public function get_order_by_session($sessionid)   ///OK
+	public function get_order_by_session($sessionid)
   {
         global $wpdb;
         if ($sessionid):
@@ -502,31 +456,39 @@ class CloudpaymentHandler
         endif;  
   }
    
-   
-	public function processRequest($action,$request,$order)   ///OK
+	public function processRequest($action,$request,$order)
 	{
-	      //$result = new PaySystem\ServiceResult();
         $this->addError('processRequest - '.$action);
         $this->addError(print_r($request,true));
         
         if ($action == 'check')
         {
-            return $this->processCheckAction($request,$order);    ///OK
+            return $this->processCheckAction($request,$order);
             die();
         }
         else if ($action == 'fail')
         {
-            return $this->processFailAction($request, $order);   //OK  
+            return $this->processFailAction($request, $order); 
             die();
         }
         else if ($action == 'pay')
         {
-            return $this->processSuccessAction($request, $order);   ///OK
+            return $this->processSuccessAction($request, $order);
             die();
         }
         else if ($action == 'refund')
         {
-            return $this->processrefundAction($request, $order);     //OK
+            return $this->processrefundAction($request, $order);
+            die();
+        }
+        else if ($action == 'confirm')
+        {
+            return $this->processSuccessAction($request, $order);
+            die();
+        }
+        else if ($action == 'cancel')
+        {
+            return $this->processCancelAction($request, $order);
             die();
         }
         else
@@ -538,15 +500,11 @@ class CloudpaymentHandler
 
 	}
   
-  public function addError($text)              ///OK
+  public function addError($text)
   {
         $file=$_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/cloudpayments/log.txt';
         $current = file_get_contents($file);
         $current .= date("d-m-Y H:i:s").":".$text."\n";
         file_put_contents($file, $current);
   }
-  
-
-
-
 }

@@ -8,20 +8,17 @@ class cloudpayments_admin
       add_menu_page('Cloudpayments settings', 'Cloudpayments settings', 'edit_pages', 'cloudpayments_admin', array('cloudpayments_admin', 'init_view' ), 'dashicons-edit');
  }
 
-
 	public static function init_view( )
   {
 		$file = cloudpayments_DIR . 'views/index.php';  
 		include($file);
   }
-  
-  
+
 	public static function view($name) 
   {
 		$file = cloudpayments_DIR . 'views/'. $name . '.php';
 		include($file);
 	}
-  
   
   function get_lang_mess($ID)
   {           
@@ -32,6 +29,4 @@ class cloudpayments_admin
   }
 
 }
-
-
 ?>

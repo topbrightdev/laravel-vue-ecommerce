@@ -2,104 +2,90 @@
 class cloudpayments_wp_ecommerce 
 {
 
-	    public static $Result = array();
+	public static $Result = array();
 
-      public function init($lang) 
-      {
-          $array=array();
-          $array['name'] = __( 'Cloudpayments', 'wp-e-commerce' );
-          $array['internalname'] = 'cloudpayments';
-          $array['form'] = array($this,"form_cloudpayments");
-          $array['submit_function'] = array($this,"submit_cloudpayments");
-          $array['payment_type'] = "Cloudpayments";
-          $array['display_name'] = __( 'Cloudpayments', 'wp-e-commerce' );
-	        $array['has_recurring_billing'] = true;
-          $array['image'] = WPSC_URL . '/images/cloudpayment.png';  
-
-        
-          add_action('init', array($this, 'nzshpcrt_cloudpayments_callback'));
-          add_action('init', array($this, 'nzshpcrt_cloudpayments_results'));  
-          
-          return $array;    
-      }
-      
-
-      
-      function get_lang_message($ID)
-      {           
-           $lang=get_option('cloudpayments_language'); 
-           include($_SERVER['DOCUMENT_ROOT']."/wp-content/plugins/cloudpayments/class/lang/".$lang."/index.php");
-           global $MESS;
-           if ($encoding=get_option('cloudpayments_encoding'));
-           else $encoding='utf-8';
-           
-           if ($encoding=='utf-8') return $MESS[$ID];
-           else  return iconv("utf-8","cp1251",$MESS[$ID]);
-      }
+    public function init($lang) 
+    {
+        $array=array();
+        $array['name'] = __( 'Cloudpayments', 'wp-e-commerce' );
+        $array['internalname'] = 'cloudpayments';
+        $array['form'] = array($this,"form_cloudpayments");
+        $array['submit_function'] = array($this,"submit_cloudpayments");
+        $array['payment_type'] = "Cloudpayments";
+        $array['display_name'] = __( 'Cloudpayments', 'wp-e-commerce' );
+	    $array['has_recurring_billing'] = true;
+        $array['image'] = WPSC_URL . '/images/cloudpayment.png';  
+        add_action('init', array($this, 'nzshpcrt_cloudpayments_callback'));
+        add_action('init', array($this, 'nzshpcrt_cloudpayments_results'));  
+        return $array;    
+    }
+     
+    function get_lang_message($ID)
+    {           
+        $lang=get_option('cloudpayments_language'); 
+        include($_SERVER['DOCUMENT_ROOT']."/wp-content/plugins/cloudpayments/class/lang/".$lang."/index.php");
+        global $MESS;
+        if ($encoding=get_option('cloudpayments_encoding'));
+        else $encoding='utf-8';
+        if ($encoding=='utf-8') return $MESS[$ID];
+        else  return iconv("utf-8","cp1251",$MESS[$ID]);
+    }
   
-      function nzshpcrt_cloudpayments_callback()
-      {
+    function nzshpcrt_cloudpayments_callback()
+    {
       	global $wpdb;
-
         require_once($_SERVER['DOCUMENT_ROOT']."/wp-content/plugins/cloudpayments/class/class.cloudpayments_wp_work.php");
         $CloudpaymentHandler = new CloudpaymentHandler;
-        
         if ($_GET['action'] && $_POST['TransactionId']):
-              if ($order=$CloudpaymentHandler->get_order($_POST)):
-                    $CloudpaymentHandler->processRequest($_GET['action'],$_POST,$order);
-              endif;      
-              die();
+            if ($order=$CloudpaymentHandler->get_order($_POST)):
+                $CloudpaymentHandler->processRequest($_GET['action'],$_POST,$order);
+            endif;      
+            die();
         elseif ($_GET['sessionid']): 
-                if ($order=$CloudpaymentHandler->get_order_by_session($_GET['sessionid'])):
-                    if (!$CloudpaymentHandler->isPaid($order)):
-                        add_filter("the_content", array($this,"insert_pay_button_in_result"));
-                    endif;
+            if ($order=$CloudpaymentHandler->get_order_by_session($_GET['sessionid'])):
+                if (!$CloudpaymentHandler->isPaid($order)):
+                    add_filter("the_content", array($this,"insert_pay_button_in_result"));
                 endif;
+            endif;
         endif;
-      }
+    }
       
-      function nzshpcrt_cloudpayments_results()
-      { 
-          add_action( 'wpsc_update_purchase_log_status', array($this,'change_purchase_log_status'), 10, 3 ); 
-      }
+    function nzshpcrt_cloudpayments_results()
+    { 
+        add_action( 'wpsc_update_purchase_log_status', array($this,'change_purchase_log_status'), 10, 3 ); 
+    }
       
-      function ddd1()
-      {
-         echo '1';die();
-      }
+    function ddd1()
+    {
+        echo '1';die();
+    }
       
-      function change_purchase_log_status($order_id,$new_status,$status)
-      {
-            require_once($_SERVER['DOCUMENT_ROOT']."/wp-content/plugins/cloudpayments/class/class.cloudpayments_wp_work.php");
-            $CloudpaymentHandler = new CloudpaymentHandler;
-            $CloudpaymentHandler->addError("change_purchase_log_status - order_id:".$order_id." old_status:".$status." - new_status:".$new_status);
-            $STATUS_CHANGE=$CloudpaymentHandler->get_status_change();
-            if ($new_status==$STATUS_CHANGE):
-                 $CloudpaymentHandler->refund($order_id); 
-            endif;
-      }
+    function change_purchase_log_status($order_id,$new_status,$status)
+    {
+        require_once($_SERVER['DOCUMENT_ROOT']."/wp-content/plugins/cloudpayments/class/class.cloudpayments_wp_work.php");
+        $CloudpaymentHandler = new CloudpaymentHandler;
+        $CloudpaymentHandler->addError("change_purchase_log_status - order_id:".$order_id." old_status:".$status." - new_status:".$new_status);
+        $STATUS_CHANGE=$CloudpaymentHandler->get_status_change();
+        if ($new_status==$STATUS_CHANGE):
+            $CloudpaymentHandler->refund($order_id); 
+        endif;
+    }
       
-      function insert_pay_button_in_result($the_Post)  ///Y
-      {
-            if ($_GET['sessionid']):
-                  $button_html=self::get_pay_button($_GET['sessionid']);
-                  $the_Post.=$button_html;
-                  return $the_Post;
-            endif;
-      }    
+    function insert_pay_button_in_result($the_Post)
+    {
+        if ($_GET['sessionid']):
+            $button_html=self::get_pay_button($_GET['sessionid']);
+            $the_Post.=$button_html;
+            return $the_Post;
+        endif;
+    }    
 
-      function submit_cloudpayments()    //Y
-      {
-      	  if(isset($_POST['cloudpayments_Public ID']))
-          {
-          	update_option('cloudpayments_Public ID', sanitize_text_field( $_POST['cloudpayments_Public ID'] ) );
-          }
-          
-      
-      	  if(isset($_POST['cloudpayments_public_ID']))
-          {
-          	update_option('cloudpayments_public_ID', sanitize_text_field( $_POST['cloudpayments_public_ID'] ) );
-          }
+    function submit_cloudpayments() 
+    {
+        if(isset($_POST['cloudpayments_public_ID']))
+        {
+            update_option('cloudpayments_public_ID', sanitize_text_field( $_POST['cloudpayments_public_ID'] ) );
+        }
           
       	  if(isset($_POST['cloudpayments_curcode']))
           {
@@ -115,7 +101,6 @@ class cloudpayments_wp_ecommerce
           {
           	update_option('cloudpayments_language_widget', sanitize_text_field( $_POST['cloudpayments_language_widget'] ) );
           }
-          
           
       	  if(isset($_POST['cloudpayments_transaction_url']))
           {
@@ -147,15 +132,24 @@ class cloudpayments_wp_ecommerce
           	update_option('cloudpayments_vat', sanitize_text_field( $_POST['cloudpayments_vat'] ) );
           }
           
-          
-          if(isset($_POST['cloudpayments_type_system']))
+          if(isset($_POST['cloudpayments_payment_schemes']))
           {
-          	update_option('cloudpayments_type_system', sanitize_text_field( $_POST['cloudpayments_type_system'] ) );
+          	update_option('cloudpayments_payment_schemes', sanitize_text_field( $_POST['cloudpayments_payment_schemes'] ) );
+          }
+          
+          if(isset($_POST['cloudpayments_skin']))
+          {
+          	update_option('cloudpayments_skin', sanitize_text_field( $_POST['cloudpayments_skin'] ) );
           }
           
           if(isset($_POST['cloudpayments_change_status']))
           {
           	update_option('cloudpayments_change_status', sanitize_text_field( $_POST['cloudpayments_change_status'] ) );
+          }
+          
+          if(isset($_POST['cloudpayments_change_status_auth']))
+          {
+          	update_option('cloudpayments_change_status_auth', sanitize_text_field( $_POST['cloudpayments_change_status_auth'] ) );
           }
           
           if (!isset($_POST['cloudpayments_ps_is_test'])) $_POST['cloudpayments_ps_is_test']="N";
@@ -165,14 +159,12 @@ class cloudpayments_wp_ecommerce
           	update_option('cloudpayments_ps_is_test', sanitize_text_field( $_POST['cloudpayments_ps_is_test'] ) );
           }
           
-          
           if (!isset($_POST['cloudpayments_USE_CLOUD_KASSIR'])) $_POST['cloudpayments_USE_CLOUD_KASSIR']="N";
           
       	  if(isset($_POST['cloudpayments_USE_CLOUD_KASSIR']))
           {
           	update_option('cloudpayments_USE_CLOUD_KASSIR', sanitize_text_field( $_POST['cloudpayments_USE_CLOUD_KASSIR'] ) );
           }
-
 
           if(isset($_POST['cloudpayments_encoding']))
           {
@@ -182,7 +174,7 @@ class cloudpayments_wp_ecommerce
       	return true;
       }
       
-      function get_pay_button($sessionid)     ///OK
+      function get_pay_button($sessionid)
       {
             	global $wpdb;
               require_once($_SERVER['DOCUMENT_ROOT']."/wp-content/plugins/cloudpayments/class/class.cloudpayments_wp_work.php");
@@ -203,6 +195,8 @@ class cloudpayments_wp_ecommerce
                           if (empty($Ar_params['cloudpayments_success_url'])) $Ar_params['cloudpayments_success_url']=str_replace("#SESSION_ID#",$sessionid,$Ar_params['cloudpayments_transaction_url']);
                           if (empty($Ar_params['cloudpayments_fail_url'])) $Ar_params['cloudpayments_fail_url']=str_replace("#SESSION_ID#",$sessionid,$Ar_params['cloudpayments_transaction_url']);
                           if (empty($Ar_params['cloudpayments_language_widget'])) $Ar_params['cloudpayments_language_widget']="ru-RU";
+                          if (empty($Ar_params['cloudpayments_payment_schemes'])) $Ar_params['cloudpayments_payment_schemes']="charge";
+                          if (empty($Ar_params['cloudpayments_skin'])) $Ar_params['cloudpayments_skin']="classic";
                          
                           $Ar_params['description']=str_replace("#ORDER_ID#",$order['id'],self::get_lang_message('widget_description'));
                           $Ar_params['description']=str_replace("#SITE_NAME#",'http://'.$_SERVER['HTTP_HOST'],$Ar_params['description']);
@@ -219,7 +213,6 @@ class cloudpayments_wp_ecommerce
                             }
                           }
                           
-                          
                         	$phone_data = $wpdb->get_results("SELECT `id` FROM `wp_wpsc_checkout_forms` WHERE `name` = 'phone'",ARRAY_A);
                         	foreach((array)$phone_data as $phone)
                           {  
@@ -229,8 +222,6 @@ class cloudpayments_wp_ecommerce
                                 $Ar_params['phone']=$phone_['value'];
                             }
                           }
-                          
-                        
                           
                           if($Ar_params['cloudpayments_USE_CLOUD_KASSIR']!='N'):
                               if (!$CloudpaymentHandler->isPaid($order)):
@@ -250,8 +241,6 @@ class cloudpayments_wp_ecommerce
                                         $local_currency_shipping = $local_currency_shipping+$item['pnp'];   
                                     endforeach; 
                                     
-            
-                                    
                                     //Добавляем доставку
                                     if ($local_currency_shipping > 0): 
                                         $items[] = array(
@@ -265,16 +254,17 @@ class cloudpayments_wp_ecommerce
                                     endif;      
                           
                                     $data['cloudPayments']['customerReceipt']['Items']=$items;
-                                    $data['cloudPayments']['customerReceipt']['taxationSystem']=$Ar_params['cloudpayments_type_nalog']; ///
+                                    $data['cloudPayments']['customerReceipt']['taxationSystem']=$Ar_params['cloudpayments_type_nalog'];
+                                    $data['cloudPayments']['customerReceipt']['calculationPlace']='www.'.$_SERVER['SERVER_NAME'];
                                     $data['cloudPayments']['customerReceipt']['email']=$Ar_params['email']; 
-                                    $data['cloudPayments']['customerReceipt']['phone']=$Ar_params['phone'];   ////??????????
+                                    $data['cloudPayments']['customerReceipt']['phone']=$Ar_params['phone'];
                               endif;
                           endif;
             
-                          
-                          
                           $params=array(
                               "lang_widget"=>$Ar_params['cloudpayments_language_widget'],
+                              "payment_schemes"=>$Ar_params['cloudpayments_payment_schemes'],
+                              "skin"=>$Ar_params['cloudpayments_skin'],
                               "publicId"=>$Ar_params['cloudpayments_public_ID'],
                               "description"=>$Ar_params['description'],
                               "sum"=>$order['totalprice'],
@@ -289,18 +279,19 @@ class cloudpayments_wp_ecommerce
                             
                          $output = '
                           <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>    
-                          <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
+                          <script src="https://widget.cloudpayments.ru/bundles/cloudpayments?cms=WordPress_ecommerce"></script>
                           <button class="cloudpay_button" id="payButton">'.self::get_lang_message('payButton').'</button>
                           <div id="result" style="display:none"></div>
                           <script type="text/javascript">
                               var payHandler = function () {
                                   var widget = new cp.CloudPayments({'."language:'".$params['lang_widget']."'});
-                                  widget.charge({ // options
+                                  widget.".$params["payment_schemes"]."({ // options
                                           publicId: '".trim(htmlspecialchars($params["publicId"]))."',
                                           description: '".$params['description']."', 
                                           amount: ".number_format($params['sum'], 2, '.', '').",
                                           currency: '".$params['PAYMENT_CURRENCY']."',
                                           email: '".$params['PAYMENT_BUYER_EMAIL']."',
+                                          skin: '".$params['skin']."',
                                           invoiceId: '".htmlspecialchars($params["PAYMENT_ID"])."',
                                           accountId: '".htmlspecialchars($params["PAYMENT_BUYER_ID"])."',";
                                       if($params['CHECKONLINE']!='N'):
@@ -327,20 +318,15 @@ class cloudpayments_wp_ecommerce
                                       $output .='});
                               };
                               $("#payButton").on("click", payHandler); 
-                            ////  $("#payButton").trigger("click");
-                          </script>';
-                                       
-                                        
-                        //  if (get_option('cloudpayments_encoding')=='utf-8') $output=iconv("utf-8","cp1251",$output);
+                            </script>';
                           return $output;
                   endif; 
             endif;       
       }
       
 
-      function gateway_cloudpayments($separator, $sessionid)       ///Y
+      function gateway_cloudpayments($separator, $sessionid)
       {         
-          /// $output=self::get_pay_button($sessionid);
           if (!$sessionid) return false;
           global $wpdb;
           $order_sql = $wpdb->prepare( "SELECT * FROM `".WPSC_TABLE_PURCHASE_LOGS."` WHERE `sessionid`= %s LIMIT 1", $sessionid );
@@ -375,6 +361,8 @@ class cloudpayments_wp_ecommerce
         global $wpsc_purchlog_statuses;
       	$select_currency[get_option('cloudpayments_curcode')] = "selected='selected'";
       	$select_language[get_option('cloudpayments_language')] = "selected='selected'";
+      	$select_skin[get_option('cloudpayments_skin')] = "selected='selected'";
+      	$select_payment_schemes[get_option('cloudpayments_payment_schemes')] = "selected='selected'";
       	$select_widget_language[get_option('cloudpayments_language_widget')] = "selected='selected'";
       	$ENCODING_SELECT[get_option('cloudpayments_encoding')] = "selected='selected'";
         
@@ -384,7 +372,6 @@ class cloudpayments_wp_ecommerce
            $cloudpayments_type_nalog_select[$cloud_params['cloudpayments_type_nalog']]="selected";
         endif;
         
-        
         if ($cloud_params['cloudpayments_USE_CLOUD_KASSIR']=="Y"):
            $cloud_params['cloudpayments_USE_CLOUD_KASSIR']="checked";
         endif;
@@ -392,7 +379,6 @@ class cloudpayments_wp_ecommerce
         if ($cloud_params['cloudpayments_type_nalog']=="Y"):
            $cloud_params['cloudpayments_type_nalog']="checked";
         endif;
-        
 
       	if (!isset($select_currency['USD'])) $select_currency['USD'] = '';
       	if (!isset($select_currency['EUR'])) $select_currency['EUR'] = '';
@@ -433,7 +419,30 @@ class cloudpayments_wp_ecommerce
       				</p>
       			</td>
       		</tr>
+      			<tr>
+      			<td>" . __(self::get_lang_message('Payment_Schemes'), 'wp-e-commerce' ) . "</td>
+      			<td>
+      				<select name='cloudpayments_payment_schemes'>
+                  <option " . $select_payment_schemes['charge'] . " value='charge'>".self::get_lang_message("charge")."</option>
+                  <option " . $select_payment_schemes['auth'] . " value='auth'>".self::get_lang_message("auth")."</option>
+      				</select>
+      				<p class='description'>
+      					" . __(self::get_lang_message('Payment_Schemes_DESCR'), 'wp-e-commerce' ) . "
+      				</p>
+      		</tr>
       		<tr>
+      			<td>" . __(self::get_lang_message('SKIN'), 'wp-e-commerce' ) . "</td>
+      			<td>
+      				<select name='cloudpayments_skin'>
+                  <option " . $select_skin['classic'] . " value='classic'>".self::get_lang_message("classic")."</option>
+                  <option " . $select_skin['modern'] . " value='modern'>".self::get_lang_message("modern")."</option>
+                  <option " . $select_skin['mini'] . " value='mini'>".self::get_lang_message("mini")."</option>
+      				</select>
+      				<p class='description'>
+      					" . __(self::get_lang_message('SKIN_DESCR'), 'wp-e-commerce' ) . "
+      				</p>
+      		</tr>
+      		<tr style='display:none'>
       			<td>" . __(self::get_lang_message('ENCODING'), 'wp-e-commerce' ) . "</td>
       			<td>
       				<select name='cloudpayments_encoding'>
@@ -468,6 +477,21 @@ class cloudpayments_wp_ecommerce
       				</p>
       		</tr>
       		<tr>
+      			<td>" . __(self::get_lang_message('cloudpayments_change_status_auth'), 'wp-e-commerce' ) . "</td>
+      			<td>
+      				<select name='cloudpayments_change_status_auth'>";
+                if ($wpsc_purchlog_statuses):
+                    foreach ($wpsc_purchlog_statuses as $status1):
+      					         $output.="<option ".($status1['order']==$cloud_params['cloudpayments_change_status_auth'] ? "selected": "")." value='".$status1['order']."'>".$status1['label']."</option>";
+                    endforeach;
+                endif;
+
+      				$output.="</select>
+      				<p class='description'>
+      					" . __(self::get_lang_message('cloudpayments_change_status_auth_DESCR'), 'wp-e-commerce' ) . "
+      				</p>
+      		</tr>
+      		<tr>
       			<td>" . __(self::get_lang_message('SUCCESS_URL'), 'wp-e-commerce' ) . "</td>
       			<td>
       				<input type='text' size='40'  style='width:550px;' value='".$cloud_params['cloudpayments_success_url']."' name='cloudpayments_success_url' />
@@ -494,14 +518,14 @@ class cloudpayments_wp_ecommerce
                 if ($cloud_params['cloudpayments_vat']==10) $output.="selected ";
                 $output.=" value='10'>10%</option>";
       					$output.="<option ";                
-                if ($cloud_params['cloudpayments_vat']==18) $output.="selected ";
-                $output.=" value='18'>18%</option>";
+                if ($cloud_params['cloudpayments_vat']==20) $output.="selected ";
+                $output.=" value='20'>20%</option>";
       					$output.="<option ";
                 if ($cloud_params['cloudpayments_vat']==110) $output.="selected ";
                 $output.=" value='110'>10/110</option>";
       					$output.="<option ";
-                if ($cloud_params['cloudpayments_vat']==0) $output.="selected ";
-                $output.=" value='118'>18/118</option>";
+                if ($cloud_params['cloudpayments_vat']==120) $output.="selected ";
+                $output.=" value='120'>20/120</option>";
                 
       				$output.="</select>
       				<p class='description'>
