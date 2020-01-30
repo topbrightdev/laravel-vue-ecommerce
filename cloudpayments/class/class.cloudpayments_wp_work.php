@@ -3,81 +3,167 @@ class CloudpaymentHandler
 {
     function get_params()
     {
-      global $wpdb;
-      $cloud_params=array();
-      $link = $wpdb->esc_like("cloudpayments_").'%';
-      $cloud_params_res = $wpdb->get_results($wpdb->prepare("SELECT * FROM `wp_options` WHERE `option_name` LIKE %s", $link));
+        global $wpdb;
+        $cloud_params=array();
+        $link = $wpdb->esc_like("cloudpayments_").'%';
+        $cloud_params_res = $wpdb->get_results($wpdb->prepare("SELECT * FROM `wp_options` WHERE `option_name` LIKE %s", $link));
               
-      foreach((array)$cloud_params_res as $params1):
-           $cloud_params[$params1->option_name]=$params1->option_value; 
-      endforeach;
+        foreach((array)$cloud_params_res as $params1):
+            $cloud_params[$params1->option_name]=$params1->option_value; 
+        endforeach;
       
-      return $cloud_params;
+        return $cloud_params;
     }
 
   	public function refund($order_id)
   	{
-          global $wpdb;
-          self::addError("refund");
-      		$error = '';
-          if (empty($order_id)) return false;
+        global $wpdb;
+        self::addError("refund");
+      	$error = '';
+        if (empty($order_id)) return false;
           
-          $params=self::get_params();
-        	$order_sql = $wpdb->prepare( "SELECT * FROM `wp_wpsc_purchase_logs` WHERE `id`= %s LIMIT 1", $order_id );
-        	$order = $wpdb->get_results($order_sql,ARRAY_A) ;
-          $order=$order[0];
-          self::addError(print_r($order,true));
-          if (empty($order['transactid'])) return false;
+        $params=self::get_params();
+        $order_sql = $wpdb->prepare( "SELECT * FROM `wp_wpsc_purchase_logs` WHERE `id`= %s LIMIT 1", $order_id );
+        $order = $wpdb->get_results($order_sql,ARRAY_A) ;
+        $order=$order[0];
+        self::addError(print_r($order,true));
+        if (empty($order['transactid'])) return false;
           
-          $request=array(
-              'TransactionId'=>$order['transactid'],
-              'Amount'=>number_format($order['totalprice'], 2, '.', ''),
-          );
+        $request=array(
+            'TransactionId'=>$order['transactid'],
+            'Amount'=>number_format($order['totalprice'], 2, '.', ''),
+        );
 
-          $url = self::getUrlList('return');
+        $url = self::getUrlList('return');
           
-          self::addError($url);
+        self::addError($url);
           
-          $accesskey=trim($params['cloudpayments_public_ID']);
-          $access_psw=trim($params['cloudpayments_api_password']);
-        	$ch = curl_init($url);
-          curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-          curl_setopt($ch,CURLOPT_USERPWD,$accesskey . ":" . $access_psw);
-          curl_setopt($ch, CURLOPT_URL, $url);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-          curl_setopt($ch, CURLOPT_POST, true);
-          curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
-      	  $content = curl_exec($ch);
-  	      $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-      		$curlError = curl_error($ch);
-      		curl_close($ch);
-          $out=$this->Object_to_array(json_decode($content));
-          if ($out['Success'] !== false)
-          {
-               $this->addError('Success');
-          }
-          else
-          {
-              $error .= $out['Message'];
-          }
+        $accesskey=trim($params['cloudpayments_public_ID']);
+        $access_psw=trim($params['cloudpayments_api_password']);
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        curl_setopt($ch,CURLOPT_USERPWD,$accesskey . ":" . $access_psw);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
+      	$content = curl_exec($ch);
+  	    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+      	$curlError = curl_error($ch);
+      	curl_close($ch);
+        $out=$this->Object_to_array(json_decode($content));
+        if ($out['Success'] !== false)
+        {
+            $this->addError('Success');
+        }
+        else
+        {
+            $error .= $out['Message'];
+        }
           
-      		if ($error !== '')
-      		{
-      			   $this->addError($error);
-      		}
+      	if ($error !== '')
+      	{
+      		$this->addError($error);
+      	}
+    }
+    
+    public function send_receipt($order_id)
+  	{
+  	    global $wpdb;
+
+        if (empty($order_id)) return false;
           
+        $params=self::get_params();
+        $order_sql = $wpdb->prepare( "SELECT * FROM `wp_wpsc_purchase_logs` WHERE `id`= %s LIMIT 1", $order_id );
+        $order = $wpdb->get_results($order_sql,ARRAY_A) ;
+        $order=$order[0];
+  	    $cart_sql = "SELECT * FROM `".WPSC_TABLE_CART_CONTENTS."` WHERE `purchaseid`='".$order['id']."'";
+        $cart = $wpdb->get_results($cart_sql,ARRAY_A) ;
+        
+        $email_data = $wpdb->get_results("SELECT `id` FROM `wp_wpsc_checkout_forms` WHERE `name` = 'email'",ARRAY_A);
+        foreach((array)$email_data as $email)
+        {
+        $email_data_ = $wpdb->get_results("SELECT * FROM `wp_wpsc_submited_form_data` WHERE `log_id`=".$order['id']." and `form_id` = ".$email['id'],ARRAY_A);
+            foreach((array)$email_data_ as $email_)
+            {
+                $data['cloudPayments']['customerReceipt']['email']=$email_['value'];
+            }
+        }
+        $phone_data = $wpdb->get_results("SELECT `id` FROM `wp_wpsc_checkout_forms` WHERE `name` = 'phone'",ARRAY_A);
+        foreach((array)$phone_data as $phone)
+        {  
+         	$phone_data_ = $wpdb->get_results("SELECT * FROM `wp_wpsc_submited_form_data` WHERE `log_id`=".$order['id']." and `form_id` = ".$phone['id'],ARRAY_A);
+            foreach((array)$phone_data_ as $phone_)
+            {        
+                $data['cloudPayments']['customerReceipt']['phone']=$phone_['value'];
+            }
+        }
+  	    
+        foreach($cart as $item):
+            $items[]=array(
+                'label'=>$item['name'],
+                'price'=>number_format($item['price'],2,".",''),
+                'quantity'=>$item['quantity'],
+                'amount'=>number_format(floatval($item['price']*$item['quantity']),2,".",''),
+                'vat'=>$params['cloudpayments_vat'],
+                'method'=>4,
+                'object'=>$params['cloudpayments_calculation_object'],
+                'ean13'=>null
+            ); 
+        endforeach; 
+        
+        //Добавляем доставку
+        if ($order['base_shipping'] > 0): 
+            $items[] = array(
+                'label' => 'Доставка',
+                'price' => number_format($order['base_shipping'], 2, ".", ''),
+                'quantity' => 1,
+                'amount' => number_format($order['base_shipping'], 2, ".", ''),
+                'vat' => $params['cloudpayments_vat'],   ///
+                'method'=>4,
+                'object'=>4,
+                'ean13' => null
+            );
+        endif;  
+
+        $data['cloudPayments']['customerReceipt']['Items']=$items;
+        $data['cloudPayments']['customerReceipt']['taxationSystem']=$params['cloudpayments_type_nalog'];
+        $data['cloudPayments']['customerReceipt']['calculationPlace']='www.'.$_SERVER['SERVER_NAME']; 
+        $data['cloudPayments']['customerReceipt']['amounts']['advancePayment']=number_format($order['totalprice'], 2, '.', '');
+      	$aData = array(
+  		    'Inn' => $params['cloudpayments_inn'],
+  		    'InvoiceId' => $order['id'],
+  	    	"Type" =>  "Income",
+  			'CustomerReceipt' => $data['cloudPayments']['customerReceipt']
+  		);
+        $API_URL='https://api.cloudpayments.ru/kkt/receipt';
+  	    $aData=self::cur_json_encode($aData);
+  	    
+  	    $accesskey=trim($params['cloudpayments_public_ID']);
+        $access_psw=trim($params['cloudpayments_api_password']);
+        $auth = base64_encode($accesskey . ":" . $access_psw); 
+        
+        wp_remote_post( $API_URL, array(
+	            'timeout'     => 30,
+	            'redirection' => 5,
+	            'httpversion' => '1.0',
+	            'blocking'    => true,
+	            'headers'     => array('Authorization' => 'Basic '.$auth, 'Content-Type' => 'application/json', 'X-Request-ID' => $order_id.time()),
+	            'body'        => $aData,
+	            'cookies'     => array()
+        ) );
   	}
        
     function get_lang_message($ID)
     {           
-         $lang=get_option('cloudpayments_language'); 
-         include($_SERVER['DOCUMENT_ROOT']."/wp-content/plugins/cloudpayments/class/lang/".$lang."/index.php");
-         global $MESS;
-         if ($encoding=get_option('cloudpayments_encoding'));
-         else $encoding='utf-8';
+        $lang=get_option('cloudpayments_language'); 
+        include($_SERVER['DOCUMENT_ROOT']."/wp-content/plugins/cloudpayments-gateway-for-ecommerce/class/lang/".$lang."/index.php");
+        global $MESS;
+        if ($encoding=get_option('cloudpayments_encoding'));
+        else $encoding='utf-8';
          
-         if ($encoding=='utf-8') return $MESS[$ID];
-         else  return iconv("utf-8","cp1251",$MESS[$ID]);
+        if ($encoding=='utf-8') return $MESS[$ID];
+        else  return iconv("utf-8","cp1251",$MESS[$ID]);
     }
                                           
     function Object_to_array($data)
@@ -148,7 +234,7 @@ class CloudpaymentHandler
   		global $APPLICATION;
   		$data = $result->getData();
   		$res['code']=$data['CODE'];
-          echo json_encode($res);
+        echo json_encode($res);
   		die();
   	}  
 
@@ -173,69 +259,67 @@ class CloudpaymentHandler
         else return false;
     }
   
-   
   	public function processCheckAction($request,$order)
   	{
-          $this->addError('processCheckAction');
+        $this->addError('processCheckAction');
       
-          $accesskey=trim(get_option('cloudpayments_api_password'));
-          if($this->CheckHMac($accesskey))
-          {
-              if ($this->isCorrectSum($request,$order))
-              {
-                  $data['CODE'] = 0;
-                  $this->addError('CorrectSum');
-              }
-              else
-              {
-                  $data['CODE'] = 11;
-                  $errorMessage = 'Incorrect payment sum';
+        $accesskey=trim(get_option('cloudpayments_api_password'));
+        if($this->CheckHMac($accesskey))
+        {
+            if ($this->isCorrectSum($request,$order))
+            {
+                $data['CODE'] = 0;
+                $this->addError('CorrectSum');
+            }
+            else
+            {
+                $data['CODE'] = 11;
+                $errorMessage = 'Incorrect payment sum';
   
-                  $this->addError($errorMessage);
-              }
+                $this->addError($errorMessage);
+            }
               
-              $this->addError("Проверка заказа");
+            $this->addError("Проверка заказа");
               
-              $STATUS_CHANCEL= self::get_status_change();
+            $STATUS_CHANCEL= self::get_status_change();
               
-              if($this->isCorrectOrderID($order, $request))
-              {
-                  $data['CODE'] = 0;
-              }else
-              {
-                  $data['CODE'] = 10;
-                  $errorMessage = 'Incorrect order ID';
+            if($this->isCorrectOrderID($order, $request))
+            {
+                $data['CODE'] = 0;
+            }
+            else
+            {
+                $data['CODE'] = 10;
+                $errorMessage = 'Incorrect order ID';
   
-                  $this->addError($errorMessage);
-              }
+                $this->addError($errorMessage);
+            }
   
-              
-              $orderID=$request['InvoiceId'];
+            $orderID=$request['InvoiceId'];
   
-              if($this->isPaid($order)):
-                  $data['CODE'] = 13;
-                  $errorMessage = 'Order already paid';
-                  $this->addError($errorMessage);
-              else:
-                  $data['CODE'] = 0;
-              endif;
+            if($this->isPaid($order)):
+                $data['CODE'] = 13;
+                $errorMessage = 'Order already paid';
+                $this->addError($errorMessage);
+            else:
+                $data['CODE'] = 0;
+            endif;
   
-               
-              if ($this->isPaid($order) || $this->isCanceled($order) || $order['processed']==$STATUS_CHANCEL)
-              {
-                 $data['CODE'] = 13;
-              }  
-          }
-          else
-          {
-              $errorMessage='ERROR HMAC RECORDS';
-              $this->addError($errorMessage);  
-              $data['CODE']=5204;            
-          }
+            if ($this->isPaid($order) || $this->isCanceled($order) || $order['processed']==$STATUS_CHANCEL)
+            {
+                $data['CODE'] = 13;
+            }  
+        }
+        else
+        {
+            $errorMessage='ERROR HMAC RECORDS';
+            $this->addError($errorMessage);  
+            $data['CODE']=5204;            
+        }
           
-          $this->addError(json_encode($data));    
+        $this->addError(json_encode($data));    
           
-  		    echo json_encode($data);
+  		echo json_encode($data);
   	}                       
 
     private function processFailAction($request,$order)    //ok
@@ -288,29 +372,27 @@ class CloudpaymentHandler
             if($params['cloudpayments_USE_CLOUD_KASSIR']!='N'):
                 if (!self::isPaid($order)):
                     $items=array();
-                    $local_currency_shipping=0;
                 	$cart_sql = "SELECT * FROM `wp_wpsc_cart_contents` WHERE `purchaseid`='".$order['id']."'";
                 	$cart = $wpdb->get_results($cart_sql,ARRAY_A);
                   
                 	foreach($cart as $item):
                         $items[]=array(
-                              'label'=>$item['name'],
-                              'price'=>number_format($item['price'],2,".",''),
-                              'quantity'=>$item['quantity'],
-                              'amount'=>number_format(floatval($item['price']*$item['quantity']),2,".",''),
-                              'vat'=>$params['cloudpayments_vat'], ///
-                              'ean13'=>null
+                            'label'=>$item['name'],
+                            'price'=>number_format($item['price'],2,".",''),
+                            'quantity'=>$item['quantity'],
+                            'amount'=>number_format(floatval($item['price']*$item['quantity']),2,".",''),
+                            'vat'=>$params['cloudpayments_vat'], ///
+                            'ean13'=>null
                         ); 
-                        $local_currency_shipping = $local_currency_shipping+$item['pnp'];   
                     endforeach; 
                   
                   //Добавляем доставку
-                    if ($local_currency_shipping > 0): 
+                    if ($order['base_shipping'] > 0): 
                         $items[] = array(
-                            'label' => self::get_lang_message('DELIVERY_TXT'),
-                            'price' => number_format($local_currency_shipping, 2, ".", ''),
+                            'label' => 'Доставка',
+                            'price' => number_format($order['base_shipping'], 2, ".", ''),
                             'quantity' => 1,
-                            'amount' => number_format($local_currency_shipping, 2, ".", ''),
+                            'amount' => number_format($order['base_shipping'], 2, ".", ''),
                             'vat' => $params['cloudpayments_vat'],   ///
                             'ean13' => null
                         );
@@ -345,7 +427,12 @@ class CloudpaymentHandler
     {
        return get_option("cloudpayments_change_status_auth");
     }
-
+    
+    public function get_delivery_status()
+    {
+       return get_option("cloudpayments_delivery_status");
+    }
+    
 	private function extractDataFromRequest($request) 
 	{
 		return array(
@@ -354,56 +441,57 @@ class CloudpaymentHandler
 		);
 	}
 
-  function cur_json_encode($a=false)
-  {
-      if (is_null($a) || is_resource($a)) {
-          return 'null';
-      }
-      if ($a === false) {
-          return 'false';
-      }
-      if ($a === true) {
-          return 'true';
-      }
+    function cur_json_encode($a=false)
+    {
+        if (is_null($a) || is_resource($a)) {
+            return 'null';
+        }
+        if ($a === false) {
+            return 'false';
+        }
+        if ($a === true) {
+            return 'true';
+        }
       
-      if (is_scalar($a)) {
-          if (is_float($a)) {
-              $a = str_replace(',', '.', strval($a));
-          }
+        if (is_scalar($a)) {
+            if (is_float($a)) {
+                $a = str_replace(',', '.', strval($a));
+            }
 
-          static $jsonReplaces = array(
-              array("\\", "/", "\n", "\t", "\r", "\b", "\f", '"'),
-              array('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"')
-          );
+            static $jsonReplaces = array(
+                array("\\", "/", "\n", "\t", "\r", "\b", "\f", '"'),
+                array('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"')
+            );
   
-          return '"' . str_replace($jsonReplaces[0], $jsonReplaces[1], $a) . '"';
-      }
+            return '"' . str_replace($jsonReplaces[0], $jsonReplaces[1], $a) . '"';
+        }
   
-      $isList = true;
+        $isList = true;
   
-      for ($i = 0, reset($a); $i < count($a); $i++, next($a)) {
-          if (key($a) !== $i) {
-              $isList = false;
-              break;
-          }
-      }
+        for ($i = 0, reset($a); $i < count($a); $i++, next($a)) {
+            if (key($a) !== $i) {
+                $isList = false;
+                break;
+            }
+        }
   
-      $result = array();
+        $result = array();
       
-      if ($isList) {
-          foreach ($a as $v) {
-              $result[] = self::cur_json_encode($v);
-          }
+        if ($isList) {
+            foreach ($a as $v) {
+                $result[] = self::cur_json_encode($v);
+            }
       
-          return '[ ' . join(', ', $result) . ' ]';
-      } else {
-          foreach ($a as $k => $v) {
-              $result[] = self::cur_json_encode($k) . ': ' . self::cur_json_encode($v);
-          }
+            return '[ ' . join(', ', $result) . ' ]';
+        } 
+        else {
+            foreach ($a as $k => $v) {
+                $result[] = self::cur_json_encode($k) . ': ' . self::cur_json_encode($v);
+            }
   
-          return '{ ' . join(', ', $result) . ' }';
-      }
-  }
+            return '{ ' . join(', ', $result) . ' }';
+        }
+    }
 
 	private function processCancelAction($request,$order)
 	{
@@ -415,21 +503,37 @@ class CloudpaymentHandler
             $data['CODE'] = 0;
             echo json_encode($data);
 	}
-
+    
+    private function processReceiptAction($request,$order)
+	{
+	    if ($request['Type'] == 'IncomeReturn') {
+            $Type = 'возврата прихода';
+        }
+        elseif ($request['Type'] == 'Income') {
+            $Type = 'прихода';
+        }
+        $url = $request['Url'];
+        $note= $order['notes']."\n".'Ссылка на чек '.$Type.': '.$url;
+        global $wpdb;    
+	    $wpdb->update('wp_wpsc_purchase_logs',array('notes'=>$note),array('id' => $order['id']));
+        $data['CODE'] = 0;
+        echo json_encode($data);
+	}
+    
 	protected function getUrlList($action)
 	{
 		$urls=array(
 			'confirm' => 'https://api.cloudpayments.ru/payments/confirm ',
 			'cancel'  => 'https://api.cloudpayments.ru/payments/void',
 			'return'  => 'https://api.cloudpayments.ru/payments/refund',
-      'get'     => 'https://api.cloudpayments.ru/payments/find',
+            'get'     => 'https://api.cloudpayments.ru/payments/find',
 		);
     
-    return $urls[$action];
+        return $urls[$action];
 	}
 
 	public function get_order($request)
-  {
+    {
         $this->addError('check_payment');
 
         global $wpdb;
@@ -441,10 +545,10 @@ class CloudpaymentHandler
             endif;
         else: return false;    
         endif;  
-  }
+    }
   
 	public function get_order_by_session($sessionid)
-  {
+    {
         global $wpdb;
         if ($sessionid):
             $cloud_order_res = $wpdb->get_results($wpdb->prepare("SELECT * FROM `wp_wpsc_purchase_logs` WHERE `sessionid`=%d && `gateway`='cloudpayments'", $sessionid));
@@ -454,7 +558,7 @@ class CloudpaymentHandler
             endif;
         else: return false;    
         endif;  
-  }
+    }
    
 	public function processRequest($action,$request,$order)
 	{
@@ -491,6 +595,11 @@ class CloudpaymentHandler
             return $this->processCancelAction($request, $order);
             die();
         }
+        else if ($action == 'receipt')
+        {
+            return $this->processReceiptAction($request, $order);
+            die();
+        }
         else
         {
 
@@ -500,11 +609,11 @@ class CloudpaymentHandler
 
 	}
   
-  public function addError($text)
-  {
-        $file=$_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/cloudpayments/log.txt';
+    public function addError($text)
+    {
+        $file=$_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/cloudpayments-gateway-for-ecommerce/log.txt';
         $current = file_get_contents($file);
         $current .= date("d-m-Y H:i:s").":".$text."\n";
-        file_put_contents($file, $current);
+        //file_put_contents($file, $current);
   }
 }

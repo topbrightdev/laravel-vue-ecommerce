@@ -20,12 +20,44 @@ $MESS['charge']="Single message scheme (SMS)";
 
 $MESS['SKIN']="Widget design";
 $MESS['SKIN_DESCR']="";
-
 $MESS['classic']="Classic";
-
 $MESS['modern']="Modern";
-
 $MESS['mini']="Mini";
+
+$MESS['Calculation_Objects']="Предмет расчета";
+$MESS['Calculation_Objects_DESCR']="";
+$MESS['Unknown_object']="Предмет расчета не передается";
+$MESS['Commodity']="Товар";
+$MESS['ExcisedCommodity']="Подакцизный товар";
+$MESS['Job']="Работа";
+$MESS['Service']="Услуга";
+$MESS['GamblingBet']="Ставка азартной игры";
+$MESS['GamblingWin']="Выигрыш азартной игры";
+$MESS['LotteryTicket']="Лотерейный билет";
+$MESS['LotteryWin']="Выигрыш лотереи";
+$MESS['RidAccess']="Предоставление РИД";
+$MESS['Payment']="Платеж";
+$MESS['AgentReward']="Агентское вознаграждение";
+$MESS['Composite']="Составной предмет расчета";
+$MESS['Another']="Иной предмет расчета";
+
+$MESS['Calculation_Methods']="Способ расчета";
+$MESS['Calculation_Methods_DESCR']="";
+$MESS['Unknown_method']="Неизвестный способ расчета";
+$MESS['FullPrepayment']="Предоплата 100%";
+$MESS['PartialPrepayment']="Предоплата";
+$MESS['AdvancePay']="Аванс";
+$MESS['FullPay']="Полный расчёт";
+$MESS['PartialPayAndCredit']="Частичный расчёт и кредит";
+$MESS['Credit']="Передача в кредит";
+$MESS['CreditPayment']="Оплата кредита";
+
+$MESS['delivery_status']="Статус доставки";
+$MESS['delivery_status_DESCR']="Отдельный статус доставки необходим при формировании двух чеков: один чек - при поступлении денег от покупателя, второй при отгрузке товара. Отправка второго чека возможна при следующих способах расчета: Предоплата, Предоплата 100%, Аванс";
+
+$MESS['delivered']="Delivered";
+
+$MESS['inn']="ИНН организации";
 
 $MESS['TYPE_SYSTEM']="Payment scheme";
 $MESS['TYPE_SYSTEM_DESCR']="";
